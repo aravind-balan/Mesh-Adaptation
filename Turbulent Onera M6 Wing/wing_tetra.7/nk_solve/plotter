@@ -1,0 +1,2 @@
+plot "history.csv" using 3:4 with lines
+reread

@@ -1,0 +1,3 @@
+set term png
+set output "Residual_nk.png"
+plot "history.csv" using 3:4 with lines
