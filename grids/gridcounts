@@ -1,0 +1,24 @@
+slimshady@Laboratory-PC-2:~/Downloads/wing_release_072319$ grep -i nelem wing_tetra.{1..7}.su2 
+wing_tetra.1.su2:NELEM=    363331584
+wing_tetra.2.su2:NELEM=     45416448
+wing_tetra.3.su2:NELEM=      5677056
+wing_tetra.4.su2:NELEM=       709632
+wing_tetra.5.su2:NELEM=        88704
+wing_tetra.6.su2:NELEM=        11088
+wing_tetra.7.su2:NELEM=         1386
+
+slimshady@Laboratory-PC-2:~/Downloads/wing_release_072319$ grep -i npoin wing_tetra.{1..7}.su2 
+wing_tetra.1.su2:NPOIN=     60777345
+wing_tetra.2.su2:NPOIN=      7625153
+wing_tetra.3.su2:NPOIN=       960225
+wing_tetra.4.su2:NPOIN=       121841
+wing_tetra.5.su2:NPOIN=        15705
+wing_tetra.6.su2:NPOIN=         2093
+wing_tetra.7.su2:NPOIN=          300
+
+slimshady@Laboratory-PC-2:~/Documents$ grep -i npoin mesh_adapted_turb.su2 
+mesh_adapted_turb.su2:NPOIN= 78910
+
+slimshady@Laboratory-PC-2:~/Documents$ grep -i nelem mesh_adapted_turb.su2 
+mesh_adapted_turb.su2:NELEM= 424390
+
