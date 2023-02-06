@@ -1,0 +1,2 @@
+title="refine cad coupling in tecplot format"
+variables = "x" "y" "z" "gap" "p0" "p1" "k0" "k1"

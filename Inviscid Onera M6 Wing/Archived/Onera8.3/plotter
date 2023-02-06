@@ -1,0 +1,5 @@
+set term png transparent size 1920,1080 font "Serif,12"
+set output "Residual Onera8.3.png"
+set grid
+plot "history.csv" using 3:4 with lines
+
