@@ -20,6 +20,12 @@ std::ofstream initializeFiles(std::string Filename, int n)
 {
     std::ofstream File;
     std::cout << "Initializing " << Filename << std::endl;
+    int dimension = 3;
+
+#ifdef TWOD
+    dimension = 2;
+#endif
+
     File.open(Filename);
     if (!File)
     {
@@ -28,7 +34,7 @@ std::ofstream initializeFiles(std::string Filename, int n)
     }
     File.precision(20);
     File << "MeshVersionFormatted 1\n";
-    File << "\nDimension 3\n"
+    File << "\nDimension " << dimension << "\n"
          << "\nSolAtVertices\n"
          << n << std::endl
          << "1 1\n";
@@ -53,7 +59,9 @@ void generateSolutionFiles(std::string FileName, int n)
     DensityFile = initializeFiles("./sol/density.sol", n);
     XmomFile = initializeFiles("./sol/xmom.sol", n);
     YmomFile = initializeFiles("./sol/ymom.sol", n);
+#ifndef TWOD
     ZmomFile = initializeFiles("./sol/zmom.sol", n);
+#endif
     EnergyFile = initializeFiles("./sol/energy.sol", n);
     PressureFile = initializeFiles("./sol/pressure.sol", n);
     TemperatureFile = initializeFiles("./sol/temperature.sol", n);
@@ -71,10 +79,10 @@ void generateSolutionFiles(std::string FileName, int n)
 
         getline(DataFile, dump, ',');
         y = std::stod(dump);
-
+#ifndef TWOD
         getline(DataFile, dump, ',');
         z = std::stod(dump);
-
+#endif
         getline(DataFile, dump, ',');
         if (DensityFile)
         {
@@ -98,15 +106,15 @@ void generateSolutionFiles(std::string FileName, int n)
             YmomFile << std::endl
                      << y_mom;
         }
+#ifndef TWOD
         getline(DataFile, dump, ',');
-
         if (ZmomFile)
         {
             z_mom = std::stod(dump);
             ZmomFile << std::endl
                      << z_mom;
         }
-
+#endif
         getline(DataFile, dump, ',');
         if (EnergyFile)
         {
@@ -144,7 +152,7 @@ void generateSolutionFiles(std::string FileName, int n)
 #ifdef VISCOUS
         getline(DataFile, dump, ',');
 #endif
-	getline(DataFile, dump, '\n');
+        getline(DataFile, dump, '\n');
         if (CPFile)
         {
             cp = std::stod(dump);
