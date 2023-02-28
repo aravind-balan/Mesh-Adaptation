@@ -21,20 +21,8 @@ int main()
   number_of_lines = count_lines(input_mesh);
   input_mesh.open(FName);
   line_data = su2_reader(input_mesh, number_of_lines);
-
-  /*  std::cout << "Enter the number of markers you want to merge: ";
-    std::cin >> merge_count;
-    merge_names = new std::string[merge_count];
-
-    std::cout << "Enter the names of the markers you want to merge (case sensitive):\n";
-    for (int i = 0; i < merge_count; i++)
-    {
-      std::cout << i + 1 << ". : ";
-      std::cin >> merge_names[i];
-    }
-  */
   find_nvariables(line_data, number_of_lines, ndime, npoin, nelem, nmark, marker_elems, marker_tags);
-  // input_mesh.close();
+
   std::cout << "Variable    \t\tValue\t\tLine Number" << std::endl;
   std::cout << "Dimensions: \t\t" << ndime[0] << "\t\t" << ndime[1] << std::endl;
   std::cout << "Points:     \t\t" << npoin[0] << "\t\t" << npoin[1] << std::endl;
@@ -45,6 +33,23 @@ int main()
     std::cout << "Markers Tag:\t\t" << marker_tags[0][i] << "\t\t" << marker_tags[1][i] << std::endl;
     std::cout << "Marker Elem:\t\t" << marker_elems[0][i] << "\t\t" << marker_elems[1][i] << std::endl;
   }
+
+  std::cout << "Enter the number of markers you want to merge: ";
+  std::cin >> merge_count;
+  if (merge_count == nmark[0])
+  {
+    char ch = 'n';
+    std::cout << "This will merge all the markers into one. Are you sure?(y/N)\n";
+  }
+  merge_names = new std::string[merge_count];
+
+  std::cout << "Enter the names of the markers you want to merge (case sensitive):\n";
+  for (int i = 0; i < merge_count; i++)
+  {
+    std::cout << i + 1 << ". : ";
+    std::cin >> merge_names[i];
+  }
+
   return 0;
 }
 
@@ -67,13 +72,11 @@ int find_nvariables(std::string *line_data, int line_count, int dimension[], int
     {
       if (first_char == 'N')
       {
-        std::cout << "Found N at line number: " << i << std::endl;
         getline(dump, variable_name, '=');
         boost::trim(variable_name);
         getline(dump, variable_value);
         boost::trim(variable_value);
 
-        std::cout << "Variable name: " << variable_name << "\t\tVariable value: " << variable_value << std::endl;
         if (variable_name == "NDIME")
         {
           std::cout << "Found NDIME\n";
