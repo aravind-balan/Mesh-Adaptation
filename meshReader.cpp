@@ -2,58 +2,69 @@
 #include <sstream>
 #include <fstream>
 #include <string>
+#include <vector>
 #include <boost/algorithm/string.hpp>
 
-std::string *su2_reader(std::ifstream &, int);
-int find_nvariables(std::string *, int, int[], int[], int[], int[], int *[], std::string *[]);
+std::vector<std::string> su2_reader(std::ifstream &);
+int find_nvariables(std::vector<std::string>, int, int[], int[], int[], int[], int *[], std::string *[]);
+
 int main()
 {
   int count_lines(std::ifstream &);
 
   int merge_count, ndime[2], npoin[2], nelem[2], nmark[2], number_of_lines, *marker_elems[2];
-  std::string FName, *line_data, *merge_names, *marker_tags[2];
+  std::string FName, *merge_names, *marker_tags[2];
+  std::vector<std::string> line_data;
   std::cout << "Enter the grid filename: ";
   std::cin >> FName;
 
-  std::ifstream input_mesh;
+  std::ifstream input_mesh, marker_tag_details;
 
+  // input_mesh.open(FName);
+  // number_of_lines = count_lines(input_mesh);
   input_mesh.open(FName);
-  number_of_lines = count_lines(input_mesh);
-  input_mesh.open(FName);
-  line_data = su2_reader(input_mesh, number_of_lines);
+
+  if (!input_mesh)
+  {
+    std::cerr << "Mesh file not found. Exiting...\n";
+    exit(EXIT_FAILURE);
+  }
+
+  line_data = su2_reader(input_mesh);
+  number_of_lines = line_data.size();
+  std::cout << "Number of lines: " << number_of_lines << std::endl;
   find_nvariables(line_data, number_of_lines, ndime, npoin, nelem, nmark, marker_elems, marker_tags);
 
-  std::cout << "Variable    \t\tValue\t\tLine Number" << std::endl;
-  std::cout << "Dimensions: \t\t" << ndime[0] << "\t\t" << ndime[1] << std::endl;
-  std::cout << "Points:     \t\t" << npoin[0] << "\t\t" << npoin[1] << std::endl;
-  std::cout << "Elements:   \t\t" << nelem[0] << "\t\t" << nelem[1] << std::endl;
-  std::cout << "Markers:    \t\t" << nmark[0] << "\t\t" << nmark[1] << std::endl;
+  std::cout << "----------------|---------------|------------------\n";
+  std::cout << "Variable    \t|\tValue\t|\tLine Number" << std::endl;
+  std::cout << "----------------|---------------|------------------\n";
+  std::cout << "Dimensions  \t|\t" << ndime[0] << "\t|\t" << ndime[1] << std::endl;
+  std::cout << "Points      \t|\t" << npoin[0] << "\t|\t" << npoin[1] << std::endl;
+  std::cout << "Elements    \t|\t" << nelem[0] << "\t|\t" << nelem[1] << std::endl;
+  std::cout << "Markers     \t|\t" << nmark[0] << "\t|\t" << nmark[1] << std::endl;
   for (int i = 0; i < nmark[0]; i++)
   {
-    std::cout << "Markers Tag:\t\t" << marker_tags[0][i] << "\t\t" << marker_tags[1][i] << std::endl;
-    std::cout << "Marker Elem:\t\t" << marker_elems[0][i] << "\t\t" << marker_elems[1][i] << std::endl;
+    std::cout << "Markers Tag \t|\t" << marker_tags[0][i] << "\t|\t" << marker_tags[1][i] << std::endl;
+    std::cout << "Marker Elem \t|\t" << marker_elems[0][i] << "\t|\t" << marker_elems[1][i] << std::endl;
   }
+  std::cout << "----------------|---------------|------------------\n\n";
 
-  std::cout << "Enter the number of markers you want to merge: ";
-  std::cin >> merge_count;
-  if (merge_count == nmark[0])
+  marker_tag_details.open(FName + ".fix");
+  if (!marker_tag_details)
   {
-    char ch = 'n';
-    std::cout << "This will merge all the markers into one. Are you sure?(y/N)\n";
-  }
-  merge_names = new std::string[merge_count];
-
-  std::cout << "Enter the names of the markers you want to merge (case sensitive):\n";
-  for (int i = 0; i < merge_count; i++)
-  {
-    std::cout << i + 1 << ". : ";
-    std::cin >> merge_names[i];
+    std::cerr << "File to fix either does not exist or has an incorrect name. Please create the filename with the name \"" << FName << ".fix\"\n"
+              << "The format for the file is as follows\n\n"
+              << "total_new_marker_count\n"
+              << "new_marker_name1 old_marker_name1 old_marker_name2 ...\n"
+              << "new_marker_name2 old_marker_name3 old_marker_name4 ...\n"
+              << ".\n.\n.\n";
+    exit(EXIT_FAILURE);
   }
 
   return 0;
 }
 
-int find_nvariables(std::string *line_data, int line_count, int dimension[], int points[], int elements[], int markers[], int *marker_elems[], std::string *marker_tags[])
+int find_nvariables(std::vector<std::string> line_data, int line_count, int dimension[], int points[], int elements[], int markers[], int *marker_elems[], std::string *marker_tags[])
 {
   int i, marker_counter = 0;
   char first_char;
@@ -63,9 +74,10 @@ int find_nvariables(std::string *line_data, int line_count, int dimension[], int
   {
     first_char = line_data[i].at(0);
     dump << line_data[i];
-
     if (first_char == '%')
     {
+      dump.clear();
+      dump.str("");
       continue;
     }
     else if (isalpha(first_char))
@@ -76,10 +88,10 @@ int find_nvariables(std::string *line_data, int line_count, int dimension[], int
         boost::trim(variable_name);
         getline(dump, variable_value);
         boost::trim(variable_value);
+        std::cout << "Found " << variable_name << std::endl;
 
         if (variable_name == "NDIME")
         {
-          std::cout << "Found NDIME\n";
           dimension[0] = std::stoi(variable_value);
           dimension[1] = i;
           if (dimension[0] > 3)
@@ -90,19 +102,16 @@ int find_nvariables(std::string *line_data, int line_count, int dimension[], int
         }
         else if (variable_name == "NPOIN")
         {
-          std::cout << "Found NPOIN\n";
           points[0] = std::stoi(variable_value);
           points[1] = i;
         }
         else if (variable_name == "NELEM")
         {
-          std::cout << "Found NELEM\n";
           elements[0] = std::stoi(variable_value);
           elements[1] = i;
         }
         else if (variable_name == "NMARK")
         {
-          std::cout << "Found NMARK\n";
           markers[0] = std::stoi(variable_value);
           markers[1] = i;
           marker_tags[0] = new std::string[markers[0]];
@@ -137,32 +146,18 @@ int find_nvariables(std::string *line_data, int line_count, int dimension[], int
   return EXIT_SUCCESS;
 }
 
-std::string *su2_reader(std::ifstream &input_mesh, int number_of_lines)
+std::vector<std::string> su2_reader(std::ifstream &input_mesh)
 {
 
-  std::string *line_dump;
+  std::vector<std::string> line_dump;
+  std::string line;
   std::cout << "Reading the mesh\n";
-  line_dump = new std::string[number_of_lines];
 
-  for (int i = 0; i < number_of_lines; i++)
+  while (getline(input_mesh, line))
   {
-    getline(input_mesh, line_dump[i]);
-    boost::trim(line_dump[i]);
+    boost::trim(line);
+    line_dump.push_back(line);
   }
   input_mesh.close();
   return line_dump;
-}
-
-int count_lines(std::ifstream &input_mesh)
-{
-  std::string dump;
-  int counter = 0;
-  std::cout << "Counting lines\n";
-
-  while (std::getline(input_mesh, dump))
-  {
-    counter++;
-  }
-  input_mesh.close();
-  return counter;
 }
