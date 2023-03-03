@@ -7,7 +7,7 @@
 
 std::vector<std::string> su2_reader(std::ifstream &);
 int find_nvariables(std::vector<std::string>, int, int[], int[], int[], int[], int *[], std::string *[]);
-
+std::vector<std::string> *getNewMarkers(std::ifstream &);
 int main()
 {
   int count_lines(std::ifstream &);
@@ -15,6 +15,7 @@ int main()
   int merge_count, ndime[2], npoin[2], nelem[2], nmark[2], number_of_lines, *marker_elems[2];
   std::string FName, *merge_names, *marker_tags[2];
   std::vector<std::string> line_data;
+  std::vector<std::string> *new_markers;
   std::cout << "Enter the grid filename: ";
   std::cin >> FName;
 
@@ -60,7 +61,7 @@ int main()
               << ".\n.\n.\n";
     exit(EXIT_FAILURE);
   }
-
+  new_markers = getNewMarkers(marker_tag_details);
   return 0;
 }
 
@@ -160,4 +161,28 @@ std::vector<std::string> su2_reader(std::ifstream &input_mesh)
   }
   input_mesh.close();
   return line_dump;
+}
+
+std::vector<std::string> *getNewMarkers(std::ifstream &marker_details)
+{
+  std::vector<std::string> *marker_dump;
+  std::string line, marker_name;
+  std::stringstream dump;
+  int new_markers;
+  getline(marker_details, line);
+  new_markers = std::stoi(line);
+  marker_dump = new std::vector<std::string>[new_markers];
+  for (int i = 0; i < new_markers; i++)
+  {
+    getline(marker_details, line);
+    dump.str(line);
+
+    while (getline(dump, marker_name, ' '))
+    {
+      marker_dump[i].push_back(marker_name);
+    }
+    dump.clear();
+    dump.str("");
+  }
+  return marker_dump;
 }
