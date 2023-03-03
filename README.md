@@ -153,8 +153,8 @@ The flow over a 2D NACA Airfoil is done with the following flow conditions:
 | ---------------------- | --------- |
 | Mach Number            | 0.8       |
 | Angle of Attack        | 1.25      |
-| Freestream Pressure    | 101325    |
-| Freestream Temperature | 288.15    |
+| Freestream Pressure    | 101325 Pa |
+| Freestream Temperature | 288.15 K  |
 
 The [configuration file](naca0012/Transonic/naca0012_00/inv_NACA0012.cfg) was tweaked a little bit for better residual convergence. The important bits are the convective fluxes and the multigrid methods used in the present case. We have used the JST scheme to split the flux with the **2nd and 4th order coefficients as 0.5 and 0.02** respectively which are the default values. If the residuals oscillate or fail to converge beyond a particular magnitude, one can increase the values of the dissipation coefficients little by little and try to find the sweet spot for a particular flow simulation. This is bound to happen and it is only a matter of "when" rather than "if" as the grid adapts to the solution more and more. Finer grids have lower dissipation so you may have to increase the artificial dissipation through the sensor coefficients in order to get a converged solution.
 
@@ -186,8 +186,8 @@ The flow over a 3D Onera M6 Wing is done with the following flow conditions:
 | ---------------------- | --------- |
 | Mach Number            | 0.8395    |
 | Angle of Attack        | 3.06      |
-| Freestream Pressure    | 101325    |
-| Freestream Temperature | 288.15    |
+| Freestream Pressure    | 101325 Pa |
+| Freestream Temperature | 288.15 K  |
 
 All the configuration files options, tweaks, and conditions here are similar to the [NACA0012 2D case](#testcase-results---inviscid-transonic-flow-over-naca0012-airfoil-2d). I suggest you read the section properly before moving forward with the current test case.
 
