@@ -7,24 +7,23 @@
 
 std::vector<std::string> su2_reader(std::ifstream &);
 int find_nvariables(std::vector<std::string>, int, int[], int[], int[], int[], int *[], std::string *[]);
-std::vector<std::string> *getNewMarkers(std::ifstream &);
+std::vector<std::string> *getNewMarkers(std::ifstream &, int &);
+int search_index(std::string, std::string *[], int);
+std::vector<std::string> *getMergedMarkerLines(std::vector<std::string>, std::vector<std::string> *, std::string *[], int *[], int[], int, int);
+void putMergedMarkers(std::string, std::vector<std::string>, std::vector<std::string> *, int[], int);
+
 int main()
 {
-  int count_lines(std::ifstream &);
-
-  int merge_count, ndime[2], npoin[2], nelem[2], nmark[2], number_of_lines, *marker_elems[2];
+  int merge_count, ndime[2], npoin[2], nelem[2], nmark[2], number_of_lines, *marker_elems[2], new_nmark, *new_marker_elems;
   std::string FName, *merge_names, *marker_tags[2];
   std::vector<std::string> line_data;
-  std::vector<std::string> *new_markers;
+  std::vector<std::string> *new_markers, *new_marker_data;
+  std::ifstream input_mesh, marker_tag_details;
+
   std::cout << "Enter the grid filename: ";
   std::cin >> FName;
 
-  std::ifstream input_mesh, marker_tag_details;
-
-  // input_mesh.open(FName);
-  // number_of_lines = count_lines(input_mesh);
   input_mesh.open(FName);
-
   if (!input_mesh)
   {
     std::cerr << "Mesh file not found. Exiting...\n";
@@ -33,20 +32,21 @@ int main()
 
   line_data = su2_reader(input_mesh);
   number_of_lines = line_data.size();
+
   std::cout << "Number of lines: " << number_of_lines << std::endl;
   find_nvariables(line_data, number_of_lines, ndime, npoin, nelem, nmark, marker_elems, marker_tags);
 
   std::cout << "----------------|---------------|------------------\n";
-  std::cout << "Variable    \t|\tValue\t|\tLine Number" << std::endl;
+  std::cout << "Variable    \t|Value\t\t|Line Number" << std::endl;
   std::cout << "----------------|---------------|------------------\n";
-  std::cout << "Dimensions  \t|\t" << ndime[0] << "\t|\t" << ndime[1] << std::endl;
-  std::cout << "Points      \t|\t" << npoin[0] << "\t|\t" << npoin[1] << std::endl;
-  std::cout << "Elements    \t|\t" << nelem[0] << "\t|\t" << nelem[1] << std::endl;
-  std::cout << "Markers     \t|\t" << nmark[0] << "\t|\t" << nmark[1] << std::endl;
+  std::cout << "Dimensions  \t|" << ndime[0] << "\t\t|" << ndime[1] << std::endl;
+  std::cout << "Points      \t|" << npoin[0] << "\t\t|" << npoin[1] << std::endl;
+  std::cout << "Elements    \t|" << nelem[0] << "\t\t|" << nelem[1] << std::endl;
+  std::cout << "Markers     \t|" << nmark[0] << "\t\t|" << nmark[1] << std::endl;
   for (int i = 0; i < nmark[0]; i++)
   {
-    std::cout << "Markers Tag \t|\t" << marker_tags[0][i] << "\t|\t" << marker_tags[1][i] << std::endl;
-    std::cout << "Marker Elem \t|\t" << marker_elems[0][i] << "\t|\t" << marker_elems[1][i] << std::endl;
+    std::cout << "Markers Tag \t|" << marker_tags[0][i] << "\t\t|" << marker_tags[1][i] << std::endl;
+    std::cout << "Marker Elem \t|" << marker_elems[0][i] << "\t\t|" << marker_elems[1][i] << std::endl;
   }
   std::cout << "----------------|---------------|------------------\n\n";
 
@@ -61,7 +61,26 @@ int main()
               << ".\n.\n.\n";
     exit(EXIT_FAILURE);
   }
-  new_markers = getNewMarkers(marker_tag_details);
+  new_markers = getNewMarkers(marker_tag_details, new_nmark);
+  new_marker_elems = new int[new_nmark];
+  new_marker_data = getMergedMarkerLines(line_data, new_markers, marker_tags, marker_elems, new_marker_elems, new_nmark, nmark[0]);
+  putMergedMarkers(FName, line_data, new_marker_data, nmark, new_nmark);
+
+  std::cout << "----------------|---------------|------------------\n";
+  std::cout << "Variable    \t|Value\t\t|Line Number" << std::endl;
+  std::cout << "----------------|---------------|------------------\n";
+  std::cout << "Dimensions  \t|" << ndime[0] << "\t\t|" << ndime[1] << std::endl;
+  std::cout << "Points      \t|" << npoin[0] << "\t\t|" << npoin[1] << std::endl;
+  std::cout << "Elements    \t|" << nelem[0] << "\t\t|" << nelem[1] << std::endl;
+  std::cout << "Markers     \t|" << new_nmark << "\t\t|" << nmark[1] << std::endl;
+  int line = nmark[1] + 1;
+  for (int i = 0; i < new_nmark; i++)
+  {
+    std::cout << "Markers Tag \t|" << new_markers[i][0] << "\t\t|" << line << std::endl;
+    std::cout << "Marker Elem \t|" << new_marker_elems[i] << "\t\t|" << ++line << std::endl;
+    line = line + new_marker_data[i].size();
+  }
+  std::cout << "----------------|---------------|------------------\n\n";
   return 0;
 }
 
@@ -163,12 +182,12 @@ std::vector<std::string> su2_reader(std::ifstream &input_mesh)
   return line_dump;
 }
 
-std::vector<std::string> *getNewMarkers(std::ifstream &marker_details)
+std::vector<std::string> *getNewMarkers(std::ifstream &marker_details, int &new_markers)
 {
   std::vector<std::string> *marker_dump;
   std::string line, marker_name;
   std::stringstream dump;
-  int new_markers;
+  // int new_markers;
   getline(marker_details, line);
   new_markers = std::stoi(line);
   marker_dump = new std::vector<std::string>[new_markers];
@@ -185,4 +204,70 @@ std::vector<std::string> *getNewMarkers(std::ifstream &marker_details)
     dump.str("");
   }
   return marker_dump;
+}
+
+int search_index(std::string marker, std::string *marker_tags[], int nmark)
+{
+  int index = -1;
+  for (int i = 0; i < nmark; i++)
+  {
+    if (marker == marker_tags[0][i])
+    {
+      index = i;
+    }
+  }
+  return index;
+}
+
+std::vector<std::string> *getMergedMarkerLines(std::vector<std::string> linedata, std::vector<std::string> *marker_dump, std::string *marker_tags[], int *marker_elems[], int new_marker_elems[], int new_nmark, int nmark)
+{
+  std::vector<std::string> *new_marker_lines;
+  new_marker_lines = new std::vector<std::string>[new_nmark];
+  int index, elements;
+  for (int i = 0; i < new_nmark; i++)
+  {
+    elements = 0;
+    new_marker_lines[i].push_back("MARKER_TAG= " + marker_dump[i][0]);
+    new_marker_lines[i].push_back("MARKER_ELEMS= ");
+    for (int j = 1; j < marker_dump[i].size(); j++)
+    {
+      index = search_index(marker_dump[i][j], marker_tags, nmark);
+      if (index == -1)
+      {
+        std::cout << "Marker name \"" << marker_dump[i][j] << "\" not found in existing markers.\nPlease fix the file.\n";
+        exit(EXIT_SUCCESS);
+      }
+      elements += marker_elems[0][index];
+
+      for (int k = 1; k <= marker_elems[0][index]; k++)
+      {
+        new_marker_lines[i].push_back(linedata[marker_elems[1][index] + k]);
+      }
+    }
+    new_marker_elems[i] = elements;
+    new_marker_lines[i].at(1) = "MARKER_ELEMS= " + std::to_string(elements);
+  }
+
+  return new_marker_lines;
+}
+
+void putMergedMarkers(std::string Filename, std::vector<std::string> line_data, std::vector<std::string> *marker_dump, int nmark[], int new_nmark)
+{
+  std::ofstream MergedMesh;
+  MergedMesh.open("fixed_" + Filename);
+  for (int linenumber = 0; linenumber < nmark[1]; linenumber++)
+  {
+    MergedMesh << line_data[linenumber] << std::endl;
+  }
+  MergedMesh << "NMARK= " + std::to_string(new_nmark) + "\n";
+
+  for (int i = 0; i < new_nmark; i++)
+  {
+    for (int j = 0; j < marker_dump[i].size(); j++)
+    {
+      MergedMesh << marker_dump[i][j] << std::endl;
+    }
+    MergedMesh << std::endl;
+  }
+  MergedMesh.close();
 }
