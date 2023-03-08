@@ -13,6 +13,7 @@ int main()
     std::cout << "Enter Vertex Count: ";
     std::cin >> vertex_count;
     generateSolutionFiles(FName, vertex_count);
+    std::cout << "\n--------EXIT SUCCESS--------\n";
     return 0;
 }
 
@@ -152,7 +153,9 @@ void generateSolutionFiles(std::string FileName, int n)
 #ifdef VISCOUS
         getline(DataFile, dump, ',');
 #endif
+#ifndef VISCOUS
         getline(DataFile, dump, '\n');
+#endif
         if (CPFile)
         {
             cp = std::stod(dump);
