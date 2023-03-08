@@ -35,7 +35,7 @@ int main()
 
   std::cout << "Number of lines: " << number_of_lines << std::endl;
   find_nvariables(line_data, number_of_lines, ndime, npoin, nelem, nmark, marker_elems, marker_tags);
-
+  std::cout << "The line numbers are 1 less than the actual line numbers since indices start from zero and line numbers from one.\n\n";
   std::cout << "----------------|---------------|------------------\n";
   std::cout << "Variable    \t|Value\t\t|Line Number" << std::endl;
   std::cout << "----------------|---------------|------------------\n";
@@ -77,7 +77,7 @@ int main()
   for (int i = 0; i < new_nmark; i++)
   {
     std::cout << "Markers Tag \t|" << new_markers[i][0] << "\t\t|" << line << std::endl;
-    std::cout << "Marker Elem \t|" << new_marker_elems[i] << "\t\t|" << ++line << std::endl;
+    std::cout << "Marker Elem \t|" << new_marker_elems[i] << "\t\t|" << line + 1 << std::endl;
     line = line + new_marker_data[i].size();
   }
   std::cout << "----------------|---------------|------------------\n\n";
@@ -267,7 +267,6 @@ void putMergedMarkers(std::string Filename, std::vector<std::string> line_data, 
     {
       MergedMesh << marker_dump[i][j] << std::endl;
     }
-    MergedMesh << std::endl;
   }
   MergedMesh.close();
 }
