@@ -210,3 +210,38 @@ This case has been run for 12 adaptation cycles and every even adaptation is sho
 | ![Pressure 00](Inviscid%20Onera%20M6%20Wing/Onera00/Images%20and%20Plots/Pressure_00.png) | ![Pressure 01_02](Inviscid%20Onera%20M6%20Wing/Onera01_02/Images%20and%20Plots/Pressure01_02.png) |
 | ![Pressure 01_04](Inviscid%20Onera%20M6%20Wing/Onera01_04/Images%20and%20Plots/Pressure01_04.png) | ![Pressure 01_06](Inviscid%20Onera%20M6%20Wing/Onera01_06/Images%20and%20Plots/Pressure01_06.png) |
 | ![Pressure 01_08](Inviscid%20Onera%20M6%20Wing/Onera01_08/Images%20and%20Plots/Pressure01_08.png) | ![Pressure 02_01](Inviscid%20Onera%20M6%20Wing/Onera02_01/Images%20and%20Plots/Pressure02_01.png) |
+
+## Testcase Results - Turbulent Transonic Flow Over Onera M6 Wing [3D]
+
+The flow over a 3D Onera M6 Wing is done with the following flow conditions:
+
+| Physical Quantity      | Value     |
+| ---------------------- | --------- |
+| Mach Number            | 0.8395    |
+| Angle of Attack        | 3.06      |
+| Freestream Pressure    | 101325 Pa |
+| Freestream Temperature | 288.15 K  |
+
+The [basic configuration file](Turbulent%20Onera%20M6%20Wing/Onera00/turb_ONERAM6.cfg) can be found and referred to for reproducing the simulation.
+
+### Grid Refinement
+
+|  |  |
+| ---- | ---- |
+| ![Grid 00](Turbulent%20Onera%20M6%20Wing/Onera00/Images%20and%20Plots/Grid00.png) | ![Grid 01_05](Turbulent%20Onera%20M6%20Wing/Onera01_05/Images%20and%20Plots/Grid01_05.png) |
+| ![Grid 02_03](Turbulent%20Onera%20M6%20Wing/Onera02_03/Images%20and%20Plots/Grid02_03.png) | ![Grid 03_03](Turbulent%20Onera%20M6%20Wing/Onera03_03/Images%20and%20Plots/Grid03_03.png) |
+| ![Grid 04_03](Turbulent%20Onera%20M6%20Wing/Onera04_03/Images%20and%20Plots/Grid04_03.png) | ![Grid 05_03](Turbulent%20Onera%20M6%20Wing/Onera05_03/Images%20and%20Plots/Grid05_03.png) |
+| ![Grid 06_07](Turbulent%20Onera%20M6%20Wing/Onera06_07/Images%20and%20Plots/Grid06_07.png) | ![Grid 07_05](Turbulent%20Onera%20M6%20Wing/Onera07_05/Images%20and%20Plots/Grid07_05.png) |
+| ![Grid 08_05](Turbulent%20Onera%20M6%20Wing/Onera08_05/Images%20and%20Plots/Grid08_05.png) | ![Grid 09_05](Turbulent%20Onera%20M6%20Wing/Onera09_05/Images%20and%20Plots/Grid09_05.png) |
+| ![Grid 10_01](Turbulent%20Onera%20M6%20Wing/Onera10_01/Images%20and%20Plots/Grid10_01.png) | ![Grid 10_03](Turbulent%20Onera%20M6%20Wing/Onera10_03/Images%20and%20Plots/Grid10_03.png) |
+
+### Pressure Fields
+
+|  |  |
+| ---- | ---- |
+| ![Pressure 00](Turbulent%20Onera%20M6%20Wing/Onera00/Images%20and%20Plots/Pressure00.png) | ![Pressure 01_05](Turbulent%20Onera%20M6%20Wing/Onera01_05/Images%20and%20Plots/Pressure01_05.png) |
+| ![Pressure 02_03](Turbulent%20Onera%20M6%20Wing/Onera02_03/Images%20and%20Plots/Pressure02_03.png) | ![Pressure 03_03](Turbulent%20Onera%20M6%20Wing/Onera03_03/Images%20and%20Plots/Pressure03_03.png) |
+| ![Pressure 04_03](Turbulent%20Onera%20M6%20Wing/Onera04_03/Images%20and%20Plots/Pressure04_03.png) | ![Pressure 05_03](Turbulent%20Onera%20M6%20Wing/Onera05_03/Images%20and%20Plots/Pressure05_03.png) |
+| ![Pressure 06_07](Turbulent%20Onera%20M6%20Wing/Onera06_07/Images%20and%20Plots/Pressure06_07.png) | ![Pressure 07_05](Turbulent%20Onera%20M6%20Wing/Onera07_05/Images%20and%20Plots/Pressure07_05.png) |
+| ![Pressure 08_05](Turbulent%20Onera%20M6%20Wing/Onera08_05/Images%20and%20Plots/Pressure08_05.png) | ![Pressure 09_05](Turbulent%20Onera%20M6%20Wing/Onera09_05/Images%20and%20Plots/Pressure09_05.png) |
+| ![Pressure 10_01](Turbulent%20Onera%20M6%20Wing/Onera10_01/Images%20and%20Plots/Pressure10_01.png) | ![Pressure 10_03](Turbulent%20Onera%20M6%20Wing/Onera10_03/Images%20and%20Plots/Pressure10_03.png) |
