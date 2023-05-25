@@ -11,10 +11,11 @@ print("Inflow = ", inflow)
 print("T = ", inflow.T, " Density = ", inflow.rho, "Acoustic Speed = ", inflow.a)
 print("Inflow Mach Number = ", 4937.4092/inflow.a)
 
-meshfile = UnstructuredGrid:new{filename="mesh_hypersonic_full.su2", fmt="su2text"}
+meshfile = UnstructuredGrid:new{filename="mesh_hypersonic_test_parabola.su2", fmt="su2text"}
 boundary_conditions = {INFLOW=InFlowBC_Supersonic:new{flowState=inflow},
 		       OUTFLOW=OutFlowBC_Simple:new{},
-		       WALL=WallBC_WithSlip:new{}}
+		       WALL=WallBC_WithSlip:new{},
+			   SYMMETRY=WallBC_WithSlip:new{}}
 
 block = FluidBlock:new{grid=meshfile, initialState=inflow, bcDict=boundary_conditions}
 
