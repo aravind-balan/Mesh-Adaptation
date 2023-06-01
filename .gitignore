@@ -2,3 +2,5 @@
 .vscode
 Turbulent\ Onera\ M6\ Wing/Onera09_*/restart_flow.csv
 Turbulent\ Onera\ M6\ Wing/Onera10_*/restart_flow.csv
+Hypersonic\ 2D/Cylinder\ M7/no-limiter/history.csv
+Hypersonic\ 2D/Cylinder\ M7/no-muscl/cfl0.9/history.csv
