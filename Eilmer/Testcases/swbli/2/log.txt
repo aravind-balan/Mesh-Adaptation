@@ -1,0 +1,1392 @@
+Eilmer 4.0 compressible-flow simulation code -- using Newton-Krylov accelerator.
+Revision-id: 34b3af3a
+Revision-date: Thu Apr 13 12:25:08 2023 +1000
+Compiler-name: ldc2
+Build-date: Thursday 13 April 2023 11:12:20 AM IST
+Build-flavour: debug
+Parallelism: Distributed memory with message passing (MPI), number of tasks 1
+Initialising simulation from snapshot: 0
+Reference residuals are established as:
+GLOBAL:         3.854163268152e+12
+X-MOMENTUM:     8.193460358063e+08
+Y-MOMENTUM:     2.366121959471e+08
+ENERGY:         9.466849700269e+11
+Nuhat:            1.069646544943e+04
+N2:            3.003212535713e+05
+O2:            9.123188015921e+04
+N:            0.000000000000e+00
+O:            0.000000000000e+00
+No:            0.000000000000e+00
+WARNING: nonlinear update relaxation factor too small for step= 20
+         Taking nonlinear step again with the CFL reduced by a factor of 0.5
+WARNING: nonlinear update relaxation factor too small for step= 24
+         Taking nonlinear step again with the CFL reduced by a factor of 0.5
+STEP=      40  pseudo-time= 8.553e-07 dt= 8.727e-09 cfl= 2.500e-01  WC=17743.9 
+RESIDUALS        absolute        relative
+  global         3.033907e+12    7.871765e-01
+  x-mom          4.917467e+08    6.001698e-01
+  y-mom          1.762266e+08    7.447908e-01
+  total-energy   5.590641e+11    5.905492e-01
+  nuhat            5.580581e+02    5.217220e-02
+  N2            1.799236e+05    5.991036e-01
+  O2            5.465735e+04    5.991036e-01
+  N            1.772720e-09           inf
+  O            1.513829e-03           inf
+  NO            3.796726e-09           inf
+
+STEP=      60  pseudo-time= 1.030e-06 dt= 8.727e-09 cfl= 2.500e-01  WC=20573.5 
+RESIDUALS        absolute        relative
+  global         2.804580e+12    7.276755e-01
+  x-mom          4.309428e+08    5.259594e-01
+  y-mom          1.262523e+08    5.335831e-01
+  total-energy   4.938991e+11    5.217143e-01
+  nuhat            2.201827e+03    2.058462e-01
+  N2            1.577986e+05    5.254327e-01
+  O2            4.793621e+04    5.254327e-01
+  N            7.902527e-08           inf
+  O            1.924834e-03           inf
+  NO            1.688443e-07           inf
+
+STEP=      80  pseudo-time= 1.204e-06 dt= 8.727e-09 cfl= 2.500e-01  WC=23094.7 
+RESIDUALS        absolute        relative
+  global         2.735829e+12    7.098373e-01
+  x-mom          4.776569e+08    5.829734e-01
+  y-mom          1.775614e+08    7.504320e-01
+  total-energy   5.673947e+11    5.993490e-01
+  nuhat            6.192092e+02    5.788914e-02
+  N2            1.785913e+05    5.946676e-01
+  O2            5.425265e+04    5.946676e-01
+  N            1.030904e-09           inf
+  O            1.642582e-04           inf
+  NO            2.138956e-09           inf
+
+STEP=     100  pseudo-time= 1.379e-06 dt= 8.727e-09 cfl= 2.500e-01  WC=23822.1 
+RESIDUALS        absolute        relative
+  global         2.709941e+12    7.031205e-01
+  x-mom          4.250913e+08    5.188178e-01
+  y-mom          1.400253e+08    5.917923e-01
+  total-energy   4.896404e+11    5.172157e-01
+  nuhat            5.095956e+02    4.764149e-02
+  N2            1.559944e+05    5.194250e-01
+  O2            4.738812e+04    5.194250e-01
+  N            4.457357e-10           inf
+  O            8.916832e-05           inf
+  NO            8.450811e-10           inf
+
+-----------------------------------------------------------------------
+Writing flow solution at step=  100; pseudo-time= 1.379e-06
+-----------------------------------------------------------------------
+
+STEP=     120  pseudo-time= 1.553e-06 dt= 8.728e-09 cfl= 2.500e-01  WC=24525.7 
+RESIDUALS        absolute        relative
+  global         2.720034e+12    7.057392e-01
+  x-mom          5.509597e+08    6.724384e-01
+  y-mom          1.584976e+08    6.698623e-01
+  total-energy   6.347519e+11    6.704996e-01
+  nuhat            6.769703e+02    6.328916e-02
+  N2            1.998979e+05    6.656134e-01
+  O2            6.072517e+04    6.656134e-01
+  N            3.584499e-10           inf
+  O            6.048201e-05           inf
+  NO            7.954262e-10           inf
+
+STEP=     140  pseudo-time= 1.728e-06 dt= 8.728e-09 cfl= 2.500e-01  WC=25198.6 
+RESIDUALS        absolute        relative
+  global         2.755183e+12    7.148589e-01
+  x-mom          5.671304e+08    6.921745e-01
+  y-mom          1.953701e+08    8.256976e-01
+  total-energy   6.685789e+11    7.062316e-01
+  nuhat            7.193406e+02    6.725031e-02
+  N2            2.104808e+05    7.008523e-01
+  O2            6.394007e+04    7.008523e-01
+  N            2.221952e-10           inf
+  O            5.375574e-05           inf
+  NO            5.629386e-10           inf
+
+STEP=     160  pseudo-time= 1.903e-06 dt= 8.728e-09 cfl= 2.500e-01  WC=25876.9 
+RESIDUALS        absolute        relative
+  global         2.735990e+12    7.098790e-01
+  x-mom          6.329611e+08    7.725199e-01
+  y-mom          2.065184e+08    8.728139e-01
+  total-energy   7.451369e+11    7.871012e-01
+  nuhat            7.914512e+02    7.399185e-02
+  N2            2.309216e+05    7.689151e-01
+  O2            7.014957e+04    7.689151e-01
+  N            1.869902e-10           inf
+  O            3.663616e-05           inf
+  NO            3.729302e-10           inf
+
+STEP=     180  pseudo-time= 2.077e-06 dt= 8.728e-09 cfl= 2.500e-01  WC=26538.8 
+RESIDUALS        absolute        relative
+  global         2.364099e+12    6.133883e-01
+  x-mom          4.950316e+08    6.041789e-01
+  y-mom          1.617906e+08    6.837797e-01
+  total-energy   5.775535e+11    6.100800e-01
+  nuhat            6.417529e+02    5.999672e-02
+  N2            1.829687e+05    6.092431e-01
+  O2            5.558239e+04    6.092431e-01
+  N            1.812799e-10           inf
+  O            2.600417e-05           inf
+  NO            3.529740e-10           inf
+
+STEP=     200  pseudo-time= 2.252e-06 dt= 8.729e-09 cfl= 2.500e-01  WC=27197.6 
+RESIDUALS        absolute        relative
+  global         2.183089e+12    5.664236e-01
+  x-mom          4.160638e+08    5.077999e-01
+  y-mom          1.409340e+08    5.956330e-01
+  total-energy   4.881837e+11    5.156770e-01
+  nuhat            5.286220e+02    4.942025e-02
+  N2            1.538650e+05    5.123348e-01
+  O2            4.674127e+04    5.123348e-01
+  N            1.792181e-10           inf
+  O            2.622354e-05           inf
+  NO            2.851046e-10           inf
+
+-----------------------------------------------------------------------
+Writing flow solution at step=  200; pseudo-time= 2.252e-06
+-----------------------------------------------------------------------
+
+STEP=     220  pseudo-time= 2.426e-06 dt= 8.729e-09 cfl= 2.500e-01  WC=27832.5 
+RESIDUALS        absolute        relative
+  global         1.993064e+12    5.171197e-01
+  x-mom          3.765594e+08    4.595853e-01
+  y-mom          1.341643e+08    5.670221e-01
+  total-energy   4.366707e+11    4.612629e-01
+  nuhat            4.938306e+02    4.616764e-02
+  N2            1.416639e+05    4.717080e-01
+  O2            4.303481e+04    4.717080e-01
+  N            1.752171e-10           inf
+  O            2.394623e-05           inf
+  NO            2.790898e-10           inf
+
+STEP=     240  pseudo-time= 2.601e-06 dt= 8.726e-09 cfl= 2.500e-01  WC=28503.7 
+RESIDUALS        absolute        relative
+  global         2.089487e+12    5.421376e-01
+  x-mom          4.984605e+08    6.083639e-01
+  y-mom          1.673229e+08    7.071611e-01
+  total-energy   5.864962e+11    6.195263e-01
+  nuhat            6.524474e+02    6.099655e-02
+  N2            1.838432e+05    6.121551e-01
+  O2            5.584806e+04    6.121551e-01
+  N            1.711946e-10           inf
+  O            2.046379e-05           inf
+  NO            2.729353e-10           inf
+
+STEP=     260  pseudo-time= 2.775e-06 dt= 8.694e-09 cfl= 2.500e-01  WC=29328.3 
+RESIDUALS        absolute        relative
+  global         1.915265e+12    4.969341e-01
+  x-mom          4.190675e+08    5.114658e-01
+  y-mom          1.391569e+08    5.881224e-01
+  total-energy   4.850894e+11    5.124085e-01
+  nuhat            5.365393e+02    5.016043e-02
+  N2            1.569302e+05    5.225410e-01
+  O2            4.767240e+04    5.225410e-01
+  N            1.669147e-10           inf
+  O            1.524470e-05           inf
+  NO            2.662522e-10           inf
+
+STEP=     280  pseudo-time= 2.958e-06 dt= 9.460e-09 cfl= 2.734e-01  WC=29981.4 
+RESIDUALS        absolute        relative
+  global         1.688167e+12    4.380113e-01
+  x-mom          4.931051e+08    6.018276e-01
+  y-mom          1.596414e+08    6.746963e-01
+  total-energy   5.639264e+11    5.956854e-01
+  nuhat            6.378045e+02    5.962760e-02
+  N2            1.840162e+05    6.127311e-01
+  O2            5.590061e+04    6.127311e-01
+  N            1.602028e-10           inf
+  O            1.428934e-05           inf
+  NO            2.555517e-10           inf
+
+STEP=     300  pseudo-time= 3.154e-06 dt= 9.845e-09 cfl= 2.846e-01  WC=30677.0 
+RESIDUALS        absolute        relative
+  global         1.627262e+12    4.222088e-01
+  x-mom          4.174857e+08    5.095353e-01
+  y-mom          1.306228e+08    5.520543e-01
+  total-energy   4.706687e+11    4.971757e-01
+  nuhat            5.119366e+02    4.786036e-02
+  N2            1.548417e+05    5.155868e-01
+  O2            4.703795e+04    5.155868e-01
+  N            1.531333e-10           inf
+  O            1.324080e-05           inf
+  NO            2.442004e-10           inf
+
+-----------------------------------------------------------------------
+Writing flow solution at step=  300; pseudo-time= 3.154e-06
+-----------------------------------------------------------------------
+
+STEP=     320  pseudo-time= 3.356e-06 dt= 1.028e-08 cfl= 2.966e-01  WC=31398.3 
+RESIDUALS        absolute        relative
+  global         1.523906e+12    3.953921e-01
+  x-mom          3.834901e+08    4.680441e-01
+  y-mom          1.242158e+08    5.249764e-01
+  total-energy   4.430509e+11    4.680024e-01
+  nuhat            4.914579e+02    4.594582e-02
+  N2            1.445966e+05    4.814731e-01
+  O2            4.392569e+04    4.814731e-01
+  N            1.457512e-10           inf
+  O            1.082488e-05           inf
+  NO            2.323488e-10           inf
+
+STEP=     340  pseudo-time= 3.570e-06 dt= 1.090e-08 cfl= 3.136e-01  WC=32133.8 
+RESIDUALS        absolute        relative
+  global         1.409647e+12    3.657466e-01
+  x-mom          3.907416e+08    4.768944e-01
+  y-mom          1.175360e+08    4.967452e-01
+  total-energy   4.461911e+11    4.713195e-01
+  nuhat            4.871139e+02    4.553970e-02
+  N2            1.444011e+05    4.808222e-01
+  O2            4.386631e+04    4.808222e-01
+  N            1.387933e-10           inf
+  O            1.073242e-05           inf
+  NO            2.211886e-10           inf
+
+STEP=     360  pseudo-time= 3.790e-06 dt= 1.156e-08 cfl= 3.321e-01  WC=32835.3 
+RESIDUALS        absolute        relative
+  global         1.300736e+12    3.374885e-01
+  x-mom          2.559268e+08    3.123550e-01
+  y-mom          8.862390e+07    3.745534e-01
+  total-energy   2.934725e+11    3.100001e-01
+  nuhat            3.352762e+02    3.134458e-02
+  N2            9.693346e+04    3.227659e-01
+  O2            2.944654e+04    3.227659e-01
+  N            1.325091e-10           inf
+  O            1.035929e-05           inf
+  NO            2.111255e-10           inf
+
+STEP=     380  pseudo-time= 4.014e-06 dt= 1.128e-08 cfl= 3.241e-01  WC=33561.7 
+RESIDUALS        absolute        relative
+  global         1.339373e+12    3.475132e-01
+  x-mom          2.836083e+08    3.461399e-01
+  y-mom          9.733521e+07    4.113702e-01
+  total-energy   3.167819e+11    3.346223e-01
+  nuhat            3.827153e+02    3.577961e-02
+  N2            1.078046e+05    3.589644e-01
+  O2            3.274900e+04    3.589644e-01
+  N            1.252987e-10           inf
+  O            1.130115e-05           inf
+  NO            1.996176e-10           inf
+
+STEP=     400  pseudo-time= 4.233e-06 dt= 9.917e-09 cfl= 2.848e-01  WC=34299.2 
+RESIDUALS        absolute        relative
+  global         1.662565e+12    4.313685e-01
+  x-mom          3.662281e+08    4.469761e-01
+  y-mom          1.154976e+08    4.881305e-01
+  total-energy   4.143695e+11    4.377058e-01
+  nuhat            4.755108e+02    4.445494e-02
+  N2            1.382579e+05    4.603667e-01
+  O2            4.200012e+04    4.603667e-01
+  N            1.187476e-10           inf
+  O            1.235730e-05           inf
+  NO            1.891996e-10           inf
+
+-----------------------------------------------------------------------
+Writing flow solution at step=  400; pseudo-time= 4.233e-06
+-----------------------------------------------------------------------
+
+STEP=     420  pseudo-time= 4.411e-06 dt= 8.786e-09 cfl= 2.523e-01  WC=35126.5 
+RESIDUALS        absolute        relative
+  global         1.923285e+12    4.990149e-01
+  x-mom          3.302214e+08    4.030305e-01
+  y-mom          9.648182e+07    4.077635e-01
+  total-energy   3.746674e+11    3.957678e-01
+  nuhat            4.057664e+02    3.793463e-02
+  N2            1.242642e+05    4.137709e-01
+  O2            3.774910e+04    4.137709e-01
+  N            1.138458e-10           inf
+  O            1.308635e-05           inf
+  NO            1.894514e-10           inf
+
+STEP=     440  pseudo-time= 4.596e-06 dt= 9.721e-09 cfl= 2.791e-01  WC=35908.9 
+RESIDUALS        absolute        relative
+  global         1.704126e+12    4.421521e-01
+  x-mom          3.017672e+08    3.683025e-01
+  y-mom          6.509492e+07    2.751123e-01
+  total-energy   3.364975e+11    3.554482e-01
+  nuhat            3.455597e+02    3.230597e-02
+  N2            1.109779e+05    3.695306e-01
+  O2            3.371297e+04    3.695306e-01
+  N            1.094963e-10           inf
+  O            1.340738e-05           inf
+  NO            1.892818e-10           inf
+
+STEP=     460  pseudo-time= 4.786e-06 dt= 9.172e-09 cfl= 2.659e-01  WC=36793.3 
+RESIDUALS        absolute        relative
+  global         1.799177e+12    4.668140e-01
+  x-mom          3.992909e+08    4.873288e-01
+  y-mom          1.304009e+08    5.511167e-01
+  total-energy   4.558108e+11    4.814810e-01
+  nuhat            5.033310e+02    4.705583e-02
+  N2            1.508278e+05    5.022217e-01
+  O2            4.581863e+04    5.022217e-01
+  N            1.054819e-10           inf
+  O            1.321673e-05           inf
+  NO            1.812014e-10           inf
+
+STEP=     480  pseudo-time= 4.963e-06 dt= 8.685e-09 cfl= 2.547e-01  WC=37737.5 
+RESIDUALS        absolute        relative
+  global         1.916579e+12    4.972749e-01
+  x-mom          2.883715e+08    3.519532e-01
+  y-mom          9.075577e+07    3.835634e-01
+  total-energy   3.256536e+11    3.439936e-01
+  nuhat            4.000284e+02    3.739818e-02
+  N2            1.082139e+05    3.603273e-01
+  O2            3.287334e+04    3.603273e-01
+  N            1.012692e-10           inf
+  O            1.260894e-05           inf
+  NO            1.936837e-10           inf
+
+STEP=     500  pseudo-time= 5.125e-06 dt= 7.204e-09 cfl= 2.136e-01  WC=38510.3 
+RESIDUALS        absolute        relative
+  global         2.491092e+12    6.463381e-01
+  x-mom          3.627862e+08    4.427753e-01
+  y-mom          8.502259e+07    3.593331e-01
+  total-energy   4.230776e+11    4.469043e-01
+  nuhat            6.200238e+02    5.796530e-02
+  N2            1.202033e+05    4.002491e-01
+  O2            3.651548e+04    4.002491e-01
+  N            9.747989e-11           inf
+  O            1.179487e-05           inf
+  NO            2.266940e-10           inf
+
+-----------------------------------------------------------------------
+Writing flow solution at step=  500; pseudo-time= 5.125e-06
+-----------------------------------------------------------------------
+
+STEP=     520  pseudo-time= 5.257e-06 dt= 6.167e-09 cfl= 1.846e-01  WC=39115.8 
+RESIDUALS        absolute        relative
+  global         3.025516e+12    7.849996e-01
+  x-mom          4.588782e+08    5.600542e-01
+  y-mom          9.144381e+07    3.864713e-01
+  total-energy   5.474793e+11    5.783120e-01
+  nuhat            6.692419e+02    6.256664e-02
+  N2            1.588818e+05    5.290395e-01
+  O2            4.826527e+04    5.290395e-01
+  N            9.451468e-11           inf
+  O            1.099474e-05           inf
+  NO            2.441357e-10           inf
+
+STEP=     540  pseudo-time= 5.377e-06 dt= 5.752e-09 cfl= 1.737e-01  WC=39688.2 
+RESIDUALS        absolute        relative
+  global         3.301162e+12    8.565185e-01
+  x-mom          6.747146e+08    8.234795e-01
+  y-mom          8.584606e+07    3.628133e-01
+  total-energy   7.960951e+11    8.409292e-01
+  nuhat            1.010135e+03    9.443634e-02
+  N2            2.397021e+05    7.981524e-01
+  O2            7.281694e+04    7.981524e-01
+  N            9.197243e-11           inf
+  O            1.023645e-05           inf
+  NO            2.537285e-10           inf
+
+STEP=     560  pseudo-time= 5.492e-06 dt= 5.659e-09 cfl= 1.722e-01  WC=40243.0 
+RESIDUALS        absolute        relative
+  global         3.375967e+12    8.759274e-01
+  x-mom          8.056034e+08    9.832274e-01
+  y-mom          9.418475e+07    3.980553e-01
+  total-energy   9.383073e+11    9.911506e-01
+  nuhat            1.079423e+03    1.009140e-01
+  N2            2.833880e+05    9.436163e-01
+  O2            8.608789e+04    9.436163e-01
+  N            8.974637e-11           inf
+  O            9.505807e-06           inf
+  NO            2.579640e-10           inf
+
+STEP=     580  pseudo-time= 5.603e-06 dt= 5.577e-09 cfl= 1.711e-01  WC=40789.0 
+RESIDUALS        absolute        relative
+  global         3.379094e+12    8.767388e-01
+  x-mom          5.744336e+08    7.010879e-01
+  y-mom          1.378844e+08    5.827444e-01
+  total-energy   6.808684e+11    7.192133e-01
+  nuhat            8.172329e+02    7.640214e-02
+  N2            2.019518e+05    6.724525e-01
+  O2            6.134910e+04    6.724525e-01
+  N            8.763270e-11           inf
+  O            8.762109e-06           inf
+  NO            2.584828e-10           inf
+
+STEP=     600  pseudo-time= 5.711e-06 dt= 5.286e-09 cfl= 1.636e-01  WC=41349.7 
+RESIDUALS        absolute        relative
+  global         3.594812e+12    9.327088e-01
+  x-mom          6.559936e+08    8.006307e-01
+  y-mom          1.469196e+08    6.209301e-01
+  total-energy   7.767222e+11    8.204654e-01
+  nuhat            9.926095e+02    9.279790e-02
+  N2            2.334162e+05    7.772216e-01
+  O2            7.090739e+04    7.772216e-01
+  N            8.563023e-11           inf
+  O            8.027913e-06           inf
+  NO            2.559130e-10           inf
+
+-----------------------------------------------------------------------
+Writing flow solution at step=  600; pseudo-time= 5.711e-06
+-----------------------------------------------------------------------
+
+STEP=     620  pseudo-time= 5.816e-06 dt= 5.057e-09 cfl= 1.577e-01  WC=41888.8 
+RESIDUALS        absolute        relative
+  global         3.784675e+12    9.819705e-01
+  x-mom          7.676774e+08    9.369391e-01
+  y-mom          2.211273e+08    9.345558e-01
+  total-energy   9.189318e+11    9.706838e-01
+  nuhat            9.127884e+02    8.533551e-02
+  N2            2.696425e+05    8.978470e-01
+  O2            8.191227e+04    8.978470e-01
+  N            8.375248e-11           inf
+  O            7.330252e-06           inf
+  NO            2.511996e-10           inf
+
+STEP=     640  pseudo-time= 5.913e-06 dt= 4.752e-09 cfl= 1.493e-01  WC=42446.0 
+RESIDUALS        absolute        relative
+  global         4.095672e+12    1.062662e+00
+  x-mom          1.173725e+09    1.432515e+00
+  y-mom          3.051876e+08    1.289822e+00
+  total-energy   1.377161e+12    1.454719e+00
+  nuhat            1.372077e+03    1.282738e-01
+  N2            4.090416e+05    1.362014e+00
+  O2            1.242591e+05    1.362014e+00
+  N            8.203915e-11           inf
+  O            6.696618e-06           inf
+  NO            2.453634e-10           inf
+
+STEP=     660  pseudo-time= 6.011e-06 dt= 5.075e-09 cfl= 1.606e-01  WC=42957.0 
+RESIDUALS        absolute        relative
+  global         3.629843e+12    9.417978e-01
+  x-mom          5.906539e+08    7.208846e-01
+  y-mom          1.796572e+08    7.592897e-01
+  total-energy   7.144684e+11    7.547055e-01
+  nuhat            7.865271e+02    7.353150e-02
+  N2            2.047531e+05    6.817803e-01
+  O2            6.220010e+04    6.817803e-01
+  N            8.036839e-11           inf
+  O            6.083519e-06           inf
+  NO            2.383526e-10           inf
+
+STEP=     680  pseudo-time= 6.125e-06 dt= 6.467e-09 cfl= 2.064e-01  WC=43501.4 
+RESIDUALS        absolute        relative
+  global         2.546850e+12    6.608049e-01
+  x-mom          3.641505e+08    4.444404e-01
+  y-mom          1.073157e+08    4.535509e-01
+  total-energy   4.235127e+11    4.473639e-01
+  nuhat            6.281898e+02    5.872873e-02
+  N2            1.321187e+05    4.399245e-01
+  O2            4.013514e+04    4.399245e-01
+  N            7.843444e-11           inf
+  O            5.409980e-06           inf
+  NO            2.294266e-10           inf
+
+STEP=     700  pseudo-time= 6.259e-06 dt= 6.653e-09 cfl= 2.145e-01  WC=44126.1 
+RESIDUALS        absolute        relative
+  global         2.434932e+12    6.317667e-01
+  x-mom          4.119739e+08    5.028082e-01
+  y-mom          1.393615e+08    5.889869e-01
+  total-energy   4.627214e+11    4.887807e-01
+  nuhat            6.050456e+02    5.656501e-02
+  N2            1.511397e+05    5.032600e-01
+  O2            4.591335e+04    5.032600e-01
+  N            7.618218e-11           inf
+  O            4.640204e-06           inf
+  NO            2.173342e-10           inf
+
+-----------------------------------------------------------------------
+Writing flow solution at step=  700; pseudo-time= 6.259e-06
+-----------------------------------------------------------------------
+
+STEP=     720  pseudo-time= 6.391e-06 dt= 6.375e-09 cfl= 2.075e-01  WC=44729.3 
+RESIDUALS        absolute        relative
+  global         2.579487e+12    6.692729e-01
+  x-mom          5.200531e+08    6.347173e-01
+  y-mom          1.962713e+08    8.295062e-01
+  total-energy   6.166780e+11    6.514078e-01
+  nuhat            6.187443e+02    5.784568e-02
+  N2            1.899695e+05    6.325542e-01
+  O2            5.770911e+04    6.325542e-01
+  N            3.452392e-10           inf
+  O            1.576848e-04           inf
+  NO            2.147106e-09           inf
+
+STEP=     740  pseudo-time= 6.515e-06 dt= 6.096e-09 cfl= 2.003e-01  WC=45322.6 
+RESIDUALS        absolute        relative
+  global         2.680127e+12    6.953849e-01
+  x-mom          4.212121e+08    5.140833e-01
+  y-mom          1.223566e+08    5.171185e-01
+  total-energy   4.806425e+11    5.077111e-01
+  nuhat            6.725091e+02    6.287208e-02
+  N2            1.488315e+05    4.955744e-01
+  O2            4.521218e+04    4.955744e-01
+  N            3.651579e-09           inf
+  O            5.737074e-04           inf
+  NO            3.647479e-08           inf
+
+STEP=     760  pseudo-time= 6.636e-06 dt= 6.011e-09 cfl= 1.993e-01  WC=45897.1 
+RESIDUALS        absolute        relative
+  global         2.706188e+12    7.021467e-01
+  x-mom          4.223851e+08    5.155150e-01
+  y-mom          1.389782e+08    5.873671e-01
+  total-energy   4.973058e+11    5.253128e-01
+  nuhat            5.054489e+02    4.725383e-02
+  N2            1.501213e+05    4.998689e-01
+  O2            4.560398e+04    4.998689e-01
+  N            1.013082e-09           inf
+  O            5.385999e-04           inf
+  NO            7.119496e-08           inf
+
+STEP=     780  pseudo-time= 6.757e-06 dt= 6.248e-09 cfl= 2.090e-01  WC=46505.9 
+RESIDUALS        absolute        relative
+  global         2.520705e+12    6.540214e-01
+  x-mom          4.201987e+08    5.128465e-01
+  y-mom          1.265782e+08    5.349606e-01
+  total-energy   4.775600e+11    5.044551e-01
+  nuhat            5.095697e+02    4.763907e-02
+  N2            1.567425e+05    5.219160e-01
+  O2            4.761538e+04    5.219160e-01
+  N            2.986907e-09           inf
+  O            4.678121e-04           inf
+  NO            4.058297e-08           inf
+
+STEP=     800  pseudo-time= 6.885e-06 dt= 6.571e-09 cfl= 2.218e-01  WC=47115.3 
+RESIDUALS        absolute        relative
+  global         2.300446e+12    5.968730e-01
+  x-mom          4.719657e+08    5.760273e-01
+  y-mom          1.363255e+08    5.761559e-01
+  total-energy   5.427775e+11    5.733455e-01
+  nuhat            6.683733e+02    6.248544e-02
+  N2            1.713242e+05    5.704698e-01
+  O2            5.204503e+04    5.704698e-01
+  N            4.874530e-10           inf
+  O            4.249959e-04           inf
+  NO            4.532373e-08           inf
+
+-----------------------------------------------------------------------
+Writing flow solution at step=  800; pseudo-time= 6.885e-06
+-----------------------------------------------------------------------
+
+STEP=     820  pseudo-time= 7.018e-06 dt= 6.739e-09 cfl= 2.296e-01  WC=47707.9 
+RESIDUALS        absolute        relative
+  global         2.197955e+12    5.702806e-01
+  x-mom          4.331268e+08    5.286250e-01
+  y-mom          1.071532e+08    4.528642e-01
+  total-energy   4.987034e+11    5.267892e-01
+  nuhat            6.181113e+02    5.778650e-02
+  N2            1.582114e+05    5.268073e-01
+  O2            4.806162e+04    5.268073e-01
+  N            1.127501e-10           inf
+  O            2.084658e-04           inf
+  NO            2.257186e-08           inf
+
+STEP=     840  pseudo-time= 7.154e-06 dt= 6.672e-09 cfl= 2.295e-01  WC=48328.4 
+RESIDUALS        absolute        relative
+  global         2.218524e+12    5.756177e-01
+  x-mom          4.788536e+08    5.844339e-01
+  y-mom          1.070490e+08    4.524237e-01
+  total-energy   5.431398e+11    5.737282e-01
+  nuhat            6.530263e+02    6.105066e-02
+  N2            1.772808e+05    5.903038e-01
+  O2            5.385453e+04    5.903038e-01
+  N            8.569033e-11           inf
+  O            1.887584e-04           inf
+  NO            2.221447e-08           inf
+
+STEP=     860  pseudo-time= 7.286e-06 dt= 6.275e-09 cfl= 2.178e-01  WC=48944.8 
+RESIDUALS        absolute        relative
+  global         2.401836e+12    6.231797e-01
+  x-mom          9.168375e+08    1.118987e+00
+  y-mom          1.015903e+08    4.293536e-01
+  total-energy   1.044790e+12    1.103630e+00
+  nuhat            1.243195e+03    1.162248e-01
+  N2            3.333349e+05    1.109928e+00
+  O2            1.012608e+05    1.109928e+00
+  N            8.430863e-11           inf
+  O            9.124635e-05           inf
+  NO            1.011946e-08           inf
+
+STEP=     880  pseudo-time= 7.420e-06 dt= 6.985e-09 cfl= 2.445e-01  WC=49561.8 
+RESIDUALS        absolute        relative
+  global         2.029110e+12    5.264722e-01
+  x-mom          3.988689e+08    4.868138e-01
+  y-mom          9.090156e+07    3.841795e-01
+  total-energy   4.547865e+11    4.803990e-01
+  nuhat            5.631048e+02    5.264401e-02
+  N2            1.481423e+05    4.932795e-01
+  O2            4.500282e+04    4.932795e-01
+  N            8.238756e-11           inf
+  O            9.758110e-05           inf
+  NO            1.131085e-08           inf
+
+STEP=     900  pseudo-time= 7.553e-06 dt= 6.719e-09 cfl= 2.372e-01  WC=50179.1 
+RESIDUALS        absolute        relative
+  global         2.082441e+12    5.403094e-01
+  x-mom          4.744606e+08    5.790724e-01
+  y-mom          7.742742e+07    3.272334e-01
+  total-energy   5.421145e+11    5.726451e-01
+  nuhat            7.396980e+02    6.915350e-02
+  N2            1.765460e+05    5.878571e-01
+  O2            5.363131e+04    5.878571e-01
+  N            8.018141e-11           inf
+  O            6.320001e-05           inf
+  NO            7.236712e-09           inf
+
+-----------------------------------------------------------------------
+Writing flow solution at step=  900; pseudo-time= 7.553e-06
+-----------------------------------------------------------------------
+
+STEP=     920  pseudo-time= 7.694e-06 dt= 7.143e-09 cfl= 2.542e-01  WC=50846.1 
+RESIDUALS        absolute        relative
+  global         1.905887e+12    4.945008e-01
+  x-mom          5.988837e+08    7.309289e-01
+  y-mom          1.097747e+08    4.639437e-01
+  total-energy   7.074704e+11    7.473135e-01
+  nuhat            8.278277e+02    7.739264e-02
+  N2            2.217864e+05    7.384971e-01
+  O2            6.737448e+04    7.384971e-01
+  N            7.755362e-11           inf
+  O            6.790507e-05           inf
+  NO            7.745186e-09           inf
+
+STEP=     940  pseudo-time= 7.841e-06 dt= 7.703e-09 cfl= 2.765e-01  WC=51559.9 
+RESIDUALS        absolute        relative
+  global         1.673354e+12    4.341679e-01
+  x-mom          4.492033e+08    5.482461e-01
+  y-mom          1.383237e+08    5.846008e-01
+  total-energy   5.070398e+11    5.355951e-01
+  nuhat            5.748026e+02    5.373762e-02
+  N2            1.690587e+05    5.629261e-01
+  O2            5.135680e+04    5.629261e-01
+  N            7.458680e-11           inf
+  O            4.329595e-05           inf
+  NO            4.965837e-09           inf
+
+STEP=     960  pseudo-time= 8.005e-06 dt= 8.110e-09 cfl= 2.938e-01  WC=52356.2 
+RESIDUALS        absolute        relative
+  global         1.549068e+12    4.019208e-01
+  x-mom          3.462777e+08    4.226269e-01
+  y-mom          9.966928e+07    4.212348e-01
+  total-energy   3.943600e+11    4.165694e-01
+  nuhat            5.960800e+02    5.572682e-02
+  N2            1.285112e+05    4.279126e-01
+  O2            3.903927e+04    4.279126e-01
+  N            7.114157e-11           inf
+  O            2.410766e-05           inf
+  NO            2.635286e-09           inf
+
+STEP=     980  pseudo-time= 8.170e-06 dt= 8.523e-09 cfl= 3.115e-01  WC=53133.9 
+RESIDUALS        absolute        relative
+  global         1.413889e+12    3.668473e-01
+  x-mom          3.117660e+08    3.805059e-01
+  y-mom          8.315571e+07    3.514431e-01
+  total-energy   3.554525e+11    3.754708e-01
+  nuhat            4.978206e+02    4.654067e-02
+  N2            1.166982e+05    3.885778e-01
+  O2            3.545068e+04    3.885778e-01
+  N            6.757964e-11           inf
+  O            3.060572e-05           inf
+  NO            3.004525e-09           inf
+
+STEP=    1000  pseudo-time= 8.346e-06 dt= 8.973e-09 cfl= 3.309e-01  WC=53945.8 
+RESIDUALS        absolute        relative
+  global         1.311367e+12    3.402468e-01
+  x-mom          3.184094e+08    3.886141e-01
+  y-mom          1.008259e+08    4.261229e-01
+  total-energy   3.580229e+11    3.781859e-01
+  nuhat            4.592556e+02    4.293526e-02
+  N2            1.205986e+05    4.015653e-01
+  O2            3.663556e+04    4.015653e-01
+  N            6.382083e-11           inf
+  O            2.392387e-05           inf
+  NO            2.640685e-09           inf
+
+-----------------------------------------------------------------------
+Writing flow solution at step= 1000; pseudo-time= 8.346e-06
+-----------------------------------------------------------------------
+
+STEP=    1020  pseudo-time= 8.525e-06 dt= 8.950e-09 cfl= 3.331e-01  WC=54677.9 
+RESIDUALS        absolute        relative
+  global         1.279447e+12    3.319649e-01
+  x-mom          2.655349e+08    3.240815e-01
+  y-mom          8.215400e+07    3.472095e-01
+  total-energy   2.957429e+11    3.123985e-01
+  nuhat            4.261488e+02    3.984015e-02
+  N2            9.936227e+04    3.308533e-01
+  O2            3.018437e+04    3.308533e-01
+  N            6.001300e-11           inf
+  O            2.288187e-05           inf
+  NO            2.362178e-09           inf
+
+STEP=    1040  pseudo-time= 8.705e-06 dt= 9.127e-09 cfl= 3.427e-01  WC=55424.1 
+RESIDUALS        absolute        relative
+  global         1.240184e+12    3.217778e-01
+  x-mom          2.209609e+08    2.696796e-01
+  y-mom          7.062050e+07    2.984652e-01
+  total-energy   2.493383e+11    2.633804e-01
+  nuhat            5.394134e+02    5.042913e-02
+  N2            8.376476e+04    2.789172e-01
+  O2            2.544614e+04    2.789172e-01
+  N            5.633640e-11           inf
+  O            2.446948e-05           inf
+  NO            2.260546e-09           inf
+
+STEP=    1060  pseudo-time= 8.894e-06 dt= 9.681e-09 cfl= 3.666e-01  WC=56180.6 
+RESIDUALS        absolute        relative
+  global         1.116645e+12    2.897244e-01
+  x-mom          2.416300e+08    2.949059e-01
+  y-mom          7.640862e+07    3.229276e-01
+  total-energy   2.747320e+11    2.902043e-01
+  nuhat            6.244157e+02    5.837589e-02
+  N2            9.229426e+04    3.073185e-01
+  O2            2.803724e+04    3.073185e-01
+  N            5.277538e-11           inf
+  O            2.490783e-05           inf
+  NO            2.687040e-09           inf
+
+STEP=    1080  pseudo-time= 9.085e-06 dt= 9.177e-09 cfl= 3.504e-01  WC=57009.7 
+RESIDUALS        absolute        relative
+  global         1.231230e+12    3.194545e-01
+  x-mom          4.180576e+08    5.102332e-01
+  y-mom          9.699459e+07    4.099306e-01
+  total-energy   4.640832e+11    4.902192e-01
+  nuhat            5.264868e+02    4.922063e-02
+  N2            1.555158e+05    5.178314e-01
+  O2            4.724273e+04    5.178314e-01
+  N            4.926713e-11           inf
+  O            2.007106e-05           inf
+  NO            1.956114e-09           inf
+
+STEP=    1100  pseudo-time= 9.272e-06 dt= 9.968e-09 cfl= 3.835e-01  WC=57883.4 
+RESIDUALS        absolute        relative
+  global         1.077768e+12    2.796375e-01
+  x-mom          2.811767e+08    3.431721e-01
+  y-mom          6.779738e+07    2.865337e-01
+  total-energy   3.193197e+11    3.373030e-01
+  nuhat            5.489424e+02    5.131998e-02
+  N2            1.038259e+05    3.457162e-01
+  O2            3.154034e+04    3.457162e-01
+  N            4.606241e-11           inf
+  O            1.973336e-05           inf
+  NO            2.028479e-09           inf
+
+-----------------------------------------------------------------------
+Writing flow solution at step= 1100; pseudo-time= 9.272e-06
+-----------------------------------------------------------------------
+
+STEP=    1120  pseudo-time= 9.466e-06 dt= 9.851e-09 cfl= 3.817e-01  WC=58711.0 
+RESIDUALS        absolute        relative
+  global         1.063286e+12    2.758797e-01
+  x-mom          2.375109e+08    2.898786e-01
+  y-mom          7.325325e+07    3.095920e-01
+  total-energy   2.695866e+11    2.847691e-01
+  nuhat            4.949550e+02    4.627276e-02
+  N2            8.877567e+04    2.956024e-01
+  O2            2.696836e+04    2.956024e-01
+  N            4.307847e-11           inf
+  O            2.593778e-05           inf
+  NO            2.591116e-09           inf
+
+STEP=    1140  pseudo-time= 9.660e-06 dt= 9.444e-09 cfl= 3.684e-01  WC=59528.9 
+RESIDUALS        absolute        relative
+  global         1.161361e+12    3.013263e-01
+  x-mom          3.808709e+08    4.648474e-01
+  y-mom          9.502428e+07    4.016035e-01
+  total-energy   4.325402e+11    4.568998e-01
+  nuhat            6.259513e+02    5.851945e-02
+  N2            1.420064e+05    4.728483e-01
+  O2            4.313884e+04    4.728483e-01
+  N            4.034989e-11           inf
+  O            2.168015e-05           inf
+  NO            2.295975e-09           inf
+
+STEP=    1160  pseudo-time= 9.845e-06 dt= 9.028e-09 cfl= 3.542e-01  WC=60347.6 
+RESIDUALS        absolute        relative
+  global         1.192759e+12    3.094729e-01
+  x-mom          3.069332e+08    3.746075e-01
+  y-mom          9.605331e+07    4.059525e-01
+  total-energy   3.475005e+11    3.670709e-01
+  nuhat            6.968971e+02    6.515209e-02
+  N2            1.162005e+05    3.869205e-01
+  O2            3.529949e+04    3.869205e-01
+  N            3.791534e-11           inf
+  O            1.315949e-05           inf
+  NO            1.465570e-09           inf
+
+STEP=    1180  pseudo-time= 1.003e-05 dt= 8.806e-09 cfl= 3.472e-01  WC=61134.1 
+RESIDUALS        absolute        relative
+  global         1.204706e+12    3.125727e-01
+  x-mom          2.747179e+08    3.352892e-01
+  y-mom          8.101596e+07    3.423997e-01
+  total-energy   3.075102e+11    3.248285e-01
+  nuhat            9.275360e+02    8.671425e-02
+  N2            1.034924e+05    3.446058e-01
+  O2            3.143903e+04    3.446058e-01
+  N            3.571003e-11           inf
+  O            5.550315e-06           inf
+  NO            6.281305e-10           inf
+
+STEP=    1200  pseudo-time= 1.021e-05 dt= 9.505e-09 cfl= 3.763e-01  WC=61950.2 
+RESIDUALS        absolute        relative
+  global         1.115623e+12    2.894591e-01
+  x-mom          2.182125e+08    2.663252e-01
+  y-mom          8.174857e+07    3.454960e-01
+  total-energy   2.481765e+11    2.621533e-01
+  nuhat            1.083529e+03    1.012978e-01
+  N2            8.157655e+04    2.716310e-01
+  O2            2.478140e+04    2.716310e-01
+  N            3.366559e-11           inf
+  O            2.294045e-06           inf
+  NO            2.160987e-10           inf
+
+-----------------------------------------------------------------------
+Writing flow solution at step= 1200; pseudo-time= 1.021e-05
+-----------------------------------------------------------------------
+
+STEP=    1220  pseudo-time= 1.039e-05 dt= 8.841e-09 cfl= 3.513e-01  WC=62724.3 
+RESIDUALS        absolute        relative
+  global         1.195193e+12    3.101043e-01
+  x-mom          3.406584e+08    4.157687e-01
+  y-mom          1.127166e+08    4.763770e-01
+  total-energy   3.883463e+11    4.102171e-01
+  nuhat            7.803085e+02    7.295013e-02
+  N2            1.293074e+05    4.305635e-01
+  O2            3.928112e+04    4.305635e-01
+  N            3.179011e-11           inf
+  O            2.244967e-06           inf
+  NO            1.843155e-10           inf
+
+STEP=    1240  pseudo-time= 1.058e-05 dt= 9.041e-09 cfl= 3.602e-01  WC=63517.2 
+RESIDUALS        absolute        relative
+  global         1.146681e+12    2.975175e-01
+  x-mom          3.592926e+08    4.385115e-01
+  y-mom          6.376305e+07    2.694834e-01
+  total-energy   3.947828e+11    4.170160e-01
+  nuhat            6.655577e+02    6.222221e-02
+  N2            1.339878e+05    4.461484e-01
+  O2            4.070296e+04    4.461484e-01
+  N            3.006046e-11           inf
+  O            2.198499e-06           inf
+  NO            1.776297e-10           inf
+
+STEP=    1260  pseudo-time= 1.076e-05 dt= 8.961e-09 cfl= 3.579e-01  WC=64349.1 
+RESIDUALS        absolute        relative
+  global         1.209101e+12    3.137128e-01
+  x-mom          3.974767e+08    4.851146e-01
+  y-mom          1.085341e+08    4.587003e-01
+  total-energy   4.433509e+11    4.683194e-01
+  nuhat            7.987937e+02    7.467829e-02
+  N2            1.493833e+05    4.974115e-01
+  O2            4.537979e+04    4.974115e-01
+  N            2.853021e-11           inf
+  O            2.156032e-06           inf
+  NO            1.800344e-10           inf
+
+STEP=    1280  pseudo-time= 1.093e-05 dt= 8.604e-09 cfl= 3.444e-01  WC=65142.8 
+RESIDUALS        absolute        relative
+  global         1.194108e+12    3.098228e-01
+  x-mom          2.633480e+08    3.214124e-01
+  y-mom          9.952386e+07    4.206202e-01
+  total-energy   3.009244e+11    3.178717e-01
+  nuhat            7.618782e+02    7.122710e-02
+  N2            1.013672e+05    3.375293e-01
+  O2            3.079343e+04    3.375293e-01
+  N            2.713520e-11           inf
+  O            2.116260e-06           inf
+  NO            1.880010e-10           inf
+
+STEP=    1300  pseudo-time= 1.111e-05 dt= 9.517e-09 cfl= 3.819e-01  WC=65966.1 
+RESIDUALS        absolute        relative
+  global         1.047743e+12    2.718472e-01
+  x-mom          2.227160e+08    2.718216e-01
+  y-mom          6.534499e+07    2.761692e-01
+  total-energy   2.488754e+11    2.628914e-01
+  nuhat            6.221372e+02    5.816287e-02
+  N2            8.370677e+04    2.787241e-01
+  O2            2.542852e+04    2.787241e-01
+  N            2.577628e-11           inf
+  O            2.076557e-06           inf
+  NO            1.934813e-10           inf
+
+-----------------------------------------------------------------------
+Writing flow solution at step= 1300; pseudo-time= 1.111e-05
+-----------------------------------------------------------------------
+
+STEP=    1320  pseudo-time= 1.130e-05 dt= 9.643e-09 cfl= 3.880e-01  WC=66845.0 
+RESIDUALS        absolute        relative
+  global         1.067761e+12    2.770410e-01
+  x-mom          2.755786e+08    3.363397e-01
+  y-mom          5.622877e+07    2.376411e-01
+  total-energy   3.071678e+11    3.244667e-01
+  nuhat            6.252857e+02    5.845722e-02
+  N2            1.034703e+05    3.445319e-01
+  O2            3.143230e+04    3.445319e-01
+  N            2.447526e-11           inf
+  O            2.037002e-06           inf
+  NO            1.836960e-10           inf
+
+STEP=    1340  pseudo-time= 1.148e-05 dt= 8.762e-09 cfl= 3.535e-01  WC=67625.3 
+RESIDUALS        absolute        relative
+  global         1.188754e+12    3.084336e-01
+  x-mom          3.963491e+08    4.837384e-01
+  y-mom          1.241198e+08    5.245705e-01
+  total-energy   4.478477e+11    4.730694e-01
+  nuhat            5.546456e+02    5.185317e-02
+  N2            1.484189e+05    4.942004e-01
+  O2            4.508683e+04    4.942004e-01
+  N            2.330002e-11           inf
+  O            2.000024e-06           inf
+  NO            1.699087e-10           inf
+
+STEP=    1360  pseudo-time= 1.166e-05 dt= 9.163e-09 cfl= 3.707e-01  WC=68484.3 
+RESIDUALS        absolute        relative
+  global         1.116344e+12    2.896464e-01
+  x-mom          3.147312e+08    3.841249e-01
+  y-mom          6.840382e+07    2.890968e-01
+  total-energy   3.552651e+11    3.752728e-01
+  nuhat            5.785488e+02    5.408784e-02
+  N2            1.190042e+05    3.962563e-01
+  O2            3.615121e+04    3.962563e-01
+  N            2.223389e-11           inf
+  O            1.964344e-06           inf
+  NO            1.578272e-10           inf
+
+STEP=    1380  pseudo-time= 1.185e-05 dt= 9.605e-09 cfl= 3.895e-01  WC=69314.6 
+RESIDUALS        absolute        relative
+  global         1.044596e+12    2.710305e-01
+  x-mom          2.640136e+08    3.222248e-01
+  y-mom          7.030901e+07    2.971487e-01
+  total-energy   2.928018e+11    3.092917e-01
+  nuhat            5.929215e+02    5.543153e-02
+  N2            1.012064e+05    3.369939e-01
+  O2            3.074459e+04    3.369939e-01
+  N            2.122053e-11           inf
+  O            1.928202e-06           inf
+  NO            1.521659e-10           inf
+
+STEP=    1400  pseudo-time= 1.204e-05 dt= 9.969e-09 cfl= 4.053e-01  WC=70150.4 
+RESIDUALS        absolute        relative
+  global         9.874409e+11    2.562011e-01
+  x-mom          2.974678e+08    3.630552e-01
+  y-mom          8.365765e+07    3.535644e-01
+  total-energy   3.343729e+11    3.532039e-01
+  nuhat            5.616612e+02    5.250905e-02
+  N2            1.122436e+05    3.737452e-01
+  O2            3.409748e+04    3.737452e-01
+  N            1.541094e-10           inf
+  O            7.541843e-05           inf
+  NO            6.579341e-10           inf
+
+-----------------------------------------------------------------------
+Writing flow solution at step= 1400; pseudo-time= 1.204e-05
+-----------------------------------------------------------------------
+
+STEP=    1420  pseudo-time= 1.223e-05 dt= 1.007e-08 cfl= 4.106e-01  WC=70987.4 
+RESIDUALS        absolute        relative
+  global         9.868487e+11    2.560475e-01
+  x-mom          2.103227e+08    2.566959e-01
+  y-mom          7.402938e+07    3.128722e-01
+  total-energy   2.417933e+11    2.554106e-01
+  nuhat            5.412849e+02    5.060409e-02
+  N2            8.094506e+04    2.695283e-01
+  O2            2.458957e+04    2.695283e-01
+  N            8.815459e-11           inf
+  O            6.806198e-05           inf
+  NO            2.457724e-09           inf
+
+STEP=    1440  pseudo-time= 1.242e-05 dt= 9.429e-09 cfl= 3.855e-01  WC=71833.8 
+RESIDUALS        absolute        relative
+  global         1.061448e+12    2.754031e-01
+  x-mom          3.688456e+08    4.501708e-01
+  y-mom          1.079732e+08    4.563296e-01
+  total-energy   4.155551e+11    4.389582e-01
+  nuhat            5.761918e+02    5.386749e-02
+  N2            1.375697e+05    4.580750e-01
+  O2            4.179105e+04    4.580750e-01
+  N            2.090326e-10           inf
+  O            5.859486e-05           inf
+  NO            1.337680e-09           inf
+
+STEP=    1460  pseudo-time= 1.261e-05 dt= 1.008e-08 cfl= 4.131e-01  WC=72636.9 
+RESIDUALS        absolute        relative
+  global         9.504587e+11    2.466057e-01
+  x-mom          2.571654e+08    3.138666e-01
+  y-mom          7.473243e+07    3.158435e-01
+  total-energy   2.878919e+11    3.041053e-01
+  nuhat            4.776278e+02    4.465286e-02
+  N2            9.625195e+04    3.204966e-01
+  O2            2.923951e+04    3.204966e-01
+  N            3.155342e-11           inf
+  O            4.767838e-05           inf
+  NO            1.429762e-09           inf
+
+STEP=    1480  pseudo-time= 1.282e-05 dt= 9.552e-09 cfl= 3.928e-01  WC=73503.7 
+RESIDUALS        absolute        relative
+  global         9.925586e+11    2.575289e-01
+  x-mom          3.130958e+08    3.821289e-01
+  y-mom          1.083754e+08    4.580295e-01
+  total-energy   3.551327e+11    3.751329e-01
+  nuhat            4.071192e+02    3.806109e-02
+  N2            1.184556e+05    3.944297e-01
+  O2            3.598456e+04    3.944297e-01
+  N            1.682596e-11           inf
+  O            2.561968e-05           inf
+  NO            9.768015e-10           inf
+
+STEP=    1500  pseudo-time= 1.301e-05 dt= 9.228e-09 cfl= 3.806e-01  WC=74336.9 
+RESIDUALS        absolute        relative
+  global         1.081902e+12    2.807099e-01
+  x-mom          3.784510e+08    4.618940e-01
+  y-mom          6.536730e+07    2.762634e-01
+  total-energy   4.177169e+11    4.412417e-01
+  nuhat            5.555615e+02    5.193880e-02
+  N2            1.431902e+05    4.767901e-01
+  O2            4.349845e+04    4.767901e-01
+  N            1.612425e-11           inf
+  O            1.097014e-05           inf
+  NO            3.674083e-10           inf
+
+-----------------------------------------------------------------------
+Writing flow solution at step= 1500; pseudo-time= 1.301e-05
+-----------------------------------------------------------------------
+
+STEP=    1520  pseudo-time= 1.319e-05 dt= 9.209e-09 cfl= 3.809e-01  WC=75137.3 
+RESIDUALS        absolute        relative
+  global         1.047815e+12    2.718657e-01
+  x-mom          4.097193e+08    5.000564e-01
+  y-mom          6.249035e+07    2.641045e-01
+  total-energy   4.550726e+11    4.807012e-01
+  nuhat            6.697208e+02    6.261141e-02
+  N2            1.574444e+05    5.242532e-01
+  O2            4.782861e+04    5.242532e-01
+  N            1.549944e-11           inf
+  O            8.880210e-06           inf
+  NO            3.199388e-10           inf
+
+STEP=    1540  pseudo-time= 1.337e-05 dt= 9.241e-09 cfl= 3.833e-01  WC=75966.4 
+RESIDUALS        absolute        relative
+  global         1.009906e+12    2.620299e-01
+  x-mom          2.432700e+08    2.969075e-01
+  y-mom          7.751264e+07    3.275936e-01
+  total-energy   2.711009e+11    2.863686e-01
+  nuhat            5.066230e+02    4.736359e-02
+  N2            9.350371e+04    3.113456e-01
+  O2            2.840465e+04    3.113456e-01
+  N            1.488987e-11           inf
+  O            5.434464e-06           inf
+  NO            2.182242e-10           inf
+
+STEP=    1560  pseudo-time= 1.357e-05 dt= 1.050e-08 cfl= 4.370e-01  WC=76820.6 
+RESIDUALS        absolute        relative
+  global         8.822080e+11    2.288974e-01
+  x-mom          1.411715e+08    1.722978e-01
+  y-mom          4.769729e+07    2.015843e-01
+  total-energy   1.581400e+11    1.670460e-01
+  nuhat            3.942915e+02    3.686185e-02
+  N2            5.320184e+04    1.771498e-01
+  O2            1.616171e+04    1.771498e-01
+  N            1.427313e-11           inf
+  O            3.476260e-06           inf
+  NO            1.308162e-10           inf
+
+STEP=    1580  pseudo-time= 1.378e-05 dt= 1.090e-08 cfl= 4.547e-01  WC=77758.4 
+RESIDUALS        absolute        relative
+  global         1.062185e+12    2.755941e-01
+  x-mom          5.523847e+08    6.741776e-01
+  y-mom          5.981529e+07    2.527989e-01
+  total-energy   6.184168e+11    6.532446e-01
+  nuhat            6.313566e+02    5.902479e-02
+  N2            2.043632e+05    6.804819e-01
+  O2            6.208164e+04    6.804819e-01
+  N            1.368028e-11           inf
+  O            3.375074e-06           inf
+  NO            1.218058e-10           inf
+
+STEP=    1600  pseudo-time= 1.400e-05 dt= 1.092e-08 cfl= 4.571e-01  WC=78706.0 
+RESIDUALS        absolute        relative
+  global         8.393429e+11    2.177756e-01
+  x-mom          1.475410e+08    1.800716e-01
+  y-mom          5.049828e+07    2.134221e-01
+  total-energy   1.676984e+11    1.771428e-01
+  nuhat            5.304781e+02    4.959377e-02
+  N2            5.646146e+04    1.880036e-01
+  O2            1.715192e+04    1.880036e-01
+  N            1.310046e-11           inf
+  O            2.274224e-06           inf
+  NO            1.109860e-10           inf
+
+-----------------------------------------------------------------------
+Writing flow solution at step= 1600; pseudo-time= 1.400e-05
+-----------------------------------------------------------------------
+
+STEP=    1620  pseudo-time= 1.421e-05 dt= 1.098e-08 cfl= 4.607e-01  WC=79646.1 
+RESIDUALS        absolute        relative
+  global         7.969611e+11    2.067793e-01
+  x-mom          1.700035e+08    2.074868e-01
+  y-mom          6.187257e+07    2.614936e-01
+  total-energy   1.963647e+11    2.074235e-01
+  nuhat            4.147898e+02    3.877821e-02
+  N2            6.523498e+04    2.172173e-01
+  O2            1.981715e+04    2.172173e-01
+  N            1.255983e-11           inf
+  O            4.527290e-06           inf
+  NO            1.740271e-10           inf
+
+STEP=    1640  pseudo-time= 1.443e-05 dt= 1.046e-08 cfl= 4.400e-01  WC=80521.4 
+RESIDUALS        absolute        relative
+  global         8.677257e+11    2.251398e-01
+  x-mom          2.100978e+08    2.564213e-01
+  y-mom          5.164608e+07    2.182731e-01
+  total-energy   2.337158e+11    2.468781e-01
+  nuhat            3.425574e+02    3.202529e-02
+  N2            7.496546e+04    2.496176e-01
+  O2            2.277308e+04    2.496176e-01
+  N            1.207163e-11           inf
+  O            7.369446e-06           inf
+  NO            2.047435e-10           inf
+
+STEP=    1660  pseudo-time= 1.464e-05 dt= 1.058e-08 cfl= 4.459e-01  WC=81481.0 
+RESIDUALS        absolute        relative
+  global         8.567234e+11    2.222852e-01
+  x-mom          2.296142e+08    2.802408e-01
+  y-mom          8.373259e+07    3.538811e-01
+  total-energy   2.642541e+11    2.791362e-01
+  nuhat            3.112611e+02    2.909943e-02
+  N2            8.854584e+04    2.948371e-01
+  O2            2.689854e+04    2.948371e-01
+  N            1.160849e-11           inf
+  O            5.091300e-06           inf
+  NO            1.919929e-10           inf
+
+STEP=    1680  pseudo-time= 1.485e-05 dt= 1.070e-08 cfl= 4.521e-01  WC=82401.6 
+RESIDUALS        absolute        relative
+  global         8.422614e+11    2.185329e-01
+  x-mom          1.788534e+08    2.182880e-01
+  y-mom          5.326625e+07    2.251205e-01
+  total-energy   1.990457e+11    2.102555e-01
+  nuhat            3.612792e+02    3.377557e-02
+  N2            6.746755e+04    2.246513e-01
+  O2            2.049536e+04    2.246513e-01
+  N            1.117431e-11           inf
+  O            2.820529e-06           inf
+  NO            8.541681e-11           inf
+
+STEP=    1700  pseudo-time= 1.505e-05 dt= 1.073e-08 cfl= 4.542e-01  WC=83441.3 
+RESIDUALS        absolute        relative
+  global         8.234131e+11    2.136425e-01
+  x-mom          1.503471e+08    1.834965e-01
+  y-mom          4.436053e+07    1.874820e-01
+  total-energy   1.651513e+11    1.744523e-01
+  nuhat            3.640097e+02    3.403084e-02
+  N2            5.412789e+04    1.802333e-01
+  O2            1.644302e+04    1.802333e-01
+  N            1.077825e-11           inf
+  O            1.380299e-06           inf
+  NO            8.158660e-11           inf
+
+-----------------------------------------------------------------------
+Writing flow solution at step= 1700; pseudo-time= 1.505e-05
+-----------------------------------------------------------------------
+
+STEP=    1720  pseudo-time= 1.526e-05 dt= 1.072e-08 cfl= 4.548e-01  WC=84422.8 
+RESIDUALS        absolute        relative
+  global         8.634544e+11    2.240316e-01
+  x-mom          2.164560e+08    2.641814e-01
+  y-mom          5.253149e+07    2.220151e-01
+  total-energy   2.437814e+11    2.575106e-01
+  nuhat            3.041888e+02    2.843825e-02
+  N2            7.990749e+04    2.660734e-01
+  O2            2.427437e+04    2.660734e-01
+  N            1.039838e-11           inf
+  O            1.346598e-06           inf
+  NO            7.546471e-11           inf
+
+STEP=    1740  pseudo-time= 1.547e-05 dt= 1.069e-08 cfl= 4.543e-01  WC=85393.7 
+RESIDUALS        absolute        relative
+  global         8.046004e+11    2.087614e-01
+  x-mom          1.482701e+08    1.809616e-01
+  y-mom          7.936685e+07    3.354301e-01
+  total-energy   1.696736e+11    1.792292e-01
+  nuhat            2.773218e+02    2.592649e-02
+  N2            5.669675e+04    1.887870e-01
+  O2            1.722339e+04    1.887870e-01
+  N            1.004268e-11           inf
+  O            1.314745e-06           inf
+  NO            6.833099e-11           inf
+
+STEP=    1760  pseudo-time= 1.568e-05 dt= 9.173e-09 cfl= 3.904e-01  WC=86429.2 
+RESIDUALS        absolute        relative
+  global         8.471582e+11    2.198034e-01
+  x-mom          1.956318e+08    2.387658e-01
+  y-mom          5.159956e+07    2.180765e-01
+  total-energy   2.090372e+11    2.208097e-01
+  nuhat            4.194644e+02    3.921523e-02
+  N2            7.341048e+04    2.444398e-01
+  O2            2.230071e+04    2.444398e-01
+  N            9.706994e-12           inf
+  O            1.286770e-06           inf
+  NO            6.144232e-11           inf
+
+STEP=    1780  pseudo-time= 1.589e-05 dt= 1.114e-08 cfl= 4.748e-01  WC=87366.0 
+RESIDUALS        absolute        relative
+  global         7.902435e+11    2.050363e-01
+  x-mom          1.989772e+08    2.428488e-01
+  y-mom          5.243854e+07    2.216223e-01
+  total-energy   2.223742e+11    2.348978e-01
+  nuhat            2.280122e+02    2.131660e-02
+  N2            7.439870e+04    2.477304e-01
+  O2            2.260091e+04    2.477304e-01
+  N            9.381559e-12           inf
+  O            1.259106e-06           inf
+  NO            5.559169e-11           inf
+
+STEP=    1800  pseudo-time= 1.612e-05 dt= 1.100e-08 cfl= 4.698e-01  WC=88397.5 
+RESIDUALS        absolute        relative
+  global         7.974270e+11    2.069002e-01
+  x-mom          1.877986e+08    2.292055e-01
+  y-mom          5.678412e+07    2.399881e-01
+  total-energy   2.087647e+11    2.205219e-01
+  nuhat            2.411568e+02    2.254547e-02
+  N2            7.132056e+04    2.374809e-01
+  O2            2.166583e+04    2.374809e-01
+  N            9.060953e-12           inf
+  O            1.229989e-06           inf
+  NO            5.082537e-11           inf
+
+-----------------------------------------------------------------------
+Writing flow solution at step= 1800; pseudo-time= 1.612e-05
+-----------------------------------------------------------------------
+
+STEP=    1820  pseudo-time= 1.634e-05 dt= 1.104e-08 cfl= 4.720e-01  WC=89400.8 
+RESIDUALS        absolute        relative
+  global         7.704146e+11    1.998915e-01
+  x-mom          1.421208e+08    1.734563e-01
+  y-mom          4.679432e+07    1.977680e-01
+  total-energy   1.521521e+11    1.607209e-01
+  nuhat            2.370899e+02    2.216526e-02
+  N2            5.294502e+04    1.762946e-01
+  O2            1.608369e+04    1.762946e-01
+  N            8.757562e-12           inf
+  O            1.200216e-06           inf
+  NO            4.677980e-11           inf
+
+STEP=    1840  pseudo-time= 1.656e-05 dt= 1.043e-08 cfl= 4.464e-01  WC=90373.9 
+RESIDUALS        absolute        relative
+  global         8.586900e+11    2.227954e-01
+  x-mom          2.189103e+08    2.671768e-01
+  y-mom          6.219066e+07    2.628379e-01
+  total-energy   2.425535e+11    2.562135e-01
+  nuhat            2.764319e+02    2.584330e-02
+  N2            8.266212e+04    2.752457e-01
+  O2            2.511118e+04    2.752457e-01
+  N            8.477452e-12           inf
+  O            1.170796e-06           inf
+  NO            4.340603e-11           inf
+
+STEP=    1860  pseudo-time= 1.677e-05 dt= 1.093e-08 cfl= 4.684e-01  WC=91253.3 
+RESIDUALS        absolute        relative
+  global         7.846992e+11    2.035978e-01
+  x-mom          1.333228e+08    1.627185e-01
+  y-mom          4.661555e+07    1.970124e-01
+  total-energy   1.523670e+11    1.609479e-01
+  nuhat            2.058580e+02    1.924542e-02
+  N2            5.110578e+04    1.701704e-01
+  O2            1.552496e+04    1.701704e-01
+  N            8.222860e-12           inf
+  O            1.142571e-06           inf
+  NO            4.061333e-11           inf
+
+STEP=    1880  pseudo-time= 1.699e-05 dt= 1.126e-08 cfl= 4.826e-01  WC=92192.2 
+RESIDUALS        absolute        relative
+  global         7.782739e+11    2.019307e-01
+  x-mom          1.689214e+08    2.061661e-01
+  y-mom          5.226705e+07    2.208975e-01
+  total-energy   1.887553e+11    1.993855e-01
+  nuhat            2.351021e+02    2.197942e-02
+  N2            6.283345e+04    2.092208e-01
+  O2            1.908761e+04    2.092208e-01
+  N            7.977245e-12           inf
+  O            1.113558e-06           inf
+  NO            3.784103e-11           inf
+
+STEP=    1900  pseudo-time= 1.721e-05 dt= 1.138e-08 cfl= 4.880e-01  WC=93185.9 
+RESIDUALS        absolute        relative
+  global         7.366333e+11    1.911267e-01
+  x-mom          1.728587e+08    2.109715e-01
+  y-mom          5.344312e+07    2.258680e-01
+  total-energy   1.915907e+11    2.023806e-01
+  nuhat            2.024339e+02    1.892530e-02
+  N2            6.374460e+04    2.122547e-01
+  O2            1.936440e+04    2.122547e-01
+  N            7.750779e-12           inf
+  O            1.084404e-06           inf
+  NO            3.493752e-11           inf
+
+-----------------------------------------------------------------------
+Writing flow solution at step= 1900; pseudo-time= 1.721e-05
+-----------------------------------------------------------------------
+
+STEP=    1920  pseudo-time= 1.743e-05 dt= 1.118e-08 cfl= 4.796e-01  WC=94146.4 
+RESIDUALS        absolute        relative
+  global         7.520243e+11    1.951200e-01
+  x-mom          1.741591e+08    2.125587e-01
+  y-mom          4.830853e+07    2.041675e-01
+  total-energy   1.932573e+11    2.041411e-01
+  nuhat            2.041145e+02    1.908243e-02
+  N2            6.445648e+04    2.146251e-01
+  O2            1.958065e+04    2.146251e-01
+  N            7.544268e-12           inf
+  O            1.055756e-06           inf
+  NO            3.207438e-11           inf
+
+STEP=    1940  pseudo-time= 1.766e-05 dt= 1.116e-08 cfl= 4.794e-01  WC=95071.5 
+RESIDUALS        absolute        relative
+  global         7.829635e+11    2.031475e-01
+  x-mom          1.807359e+08    2.205855e-01
+  y-mom          4.794662e+07    2.026380e-01
+  total-energy   2.071700e+11    2.188373e-01
+  nuhat            2.098740e+02    1.962087e-02
+  N2            6.374308e+04    2.122496e-01
+  O2            1.936393e+04    2.122496e-01
+  N            7.353485e-12           inf
+  O            1.027468e-06           inf
+  NO            2.966478e-11           inf
+
+STEP=    1960  pseudo-time= 1.788e-05 dt= 1.168e-08 cfl= 5.021e-01  WC=96031.6 
+RESIDUALS        absolute        relative
+  global         7.167624e+11    1.859709e-01
+  x-mom          1.382486e+08    1.687305e-01
+  y-mom          3.688281e+07    1.558788e-01
+  total-energy   1.502540e+11    1.587159e-01
+  nuhat            1.887898e+02    1.764974e-02
+  N2            4.987787e+04    1.660817e-01
+  O2            1.515195e+04    1.660817e-01
+  N            7.178562e-12           inf
+  O            1.000011e-06           inf
+  NO            2.740042e-11           inf
+
+STEP=    1980  pseudo-time= 1.810e-05 dt= 1.086e-08 cfl= 4.674e-01  WC=96996.7 
+RESIDUALS        absolute        relative
+  global         7.958623e+11    2.064942e-01
+  x-mom          1.723536e+08    2.103551e-01
+  y-mom          4.941179e+07    2.088303e-01
+  total-energy   1.874849e+11    1.980436e-01
+  nuhat            2.139476e+02    2.000171e-02
+  N2            6.233623e+04    2.075652e-01
+  O2            1.893656e+04    2.075652e-01
+  N            7.009862e-12           inf
+  O            9.722086e-07           inf
+  NO            2.530337e-11           inf
+
+STOPPING: Reached maximum number of steps.
+STEP=    2000  pseudo-time= 1.833e-05 dt= 1.196e-08 cfl= 5.156e-01  WC=97967.4 
+RESIDUALS        absolute        relative
+  global         7.031502e+11    1.824391e-01
+  x-mom          1.436171e+08    1.752826e-01
+  y-mom          3.495093e+07    1.477140e-01
+  total-energy   1.626147e+11    1.717727e-01
+  nuhat            2.512024e+02    2.348462e-02
+  N2            5.085449e+04    1.693336e-01
+  O2            1.544863e+04    1.693336e-01
+  N            6.854722e-12           inf
+  O            9.455379e-07           inf
+  NO            2.357112e-11           inf
+
+-----------------------------------------------------------------------
+Writing flow solution at step= 2000; pseudo-time= 1.833e-05
+-----------------------------------------------------------------------
+
+Done simulation.
