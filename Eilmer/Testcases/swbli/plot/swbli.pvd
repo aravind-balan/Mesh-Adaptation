@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<VTKFile type="Collection" version="0.1" byte_order="LittleEndian">
+<Collection>
+<DataSet timestep="5.870927575536172716e-04" group="" part="0" file="swbli-b0000-t0020.vtu"/>
+</Collection>
+</VTKFile>

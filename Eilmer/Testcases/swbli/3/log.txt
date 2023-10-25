@@ -1,0 +1,227 @@
+Eilmer 4.0 compressible-flow simulation code -- using Newton-Krylov accelerator.
+Revision-id: 34b3af3a
+Revision-date: Thu Apr 13 12:25:08 2023 +1000
+Compiler-name: ldc2
+Build-date: Thursday 13 April 2023 11:12:20 AM IST
+Build-flavour: debug
+Parallelism: Distributed memory with message passing (MPI), number of tasks 1
+Initialising simulation from snapshot: 0
+Reference residuals are established as:
+GLOBAL:         6.116049999486e+12
+X-MOMENTUM:     1.514800742090e+09
+Y-MOMENTUM:     4.374511829546e+08
+ENERGY:         1.750226255777e+12
+Nuhat:            2.204117356824e+04
+N2:            5.552323738208e+05
+O2:            1.686690262063e+05
+N:            0.000000000000e+00
+O:            0.000000000000e+00
+No:            0.000000000000e+00
+STEP=      20  pseudo-time= 3.909e-07 dt= 1.954e-08 cfl= 1.000e+00  WC=12774.5 
+RESIDUALS        absolute        relative
+  global         4.499824e+12    7.357403e-01
+  x-mom          1.319902e+09    8.713369e-01
+  y-mom          4.123259e+08    9.425644e-01
+  total-energy   1.545963e+12    8.832935e-01
+  nuhat            1.067880e+04    4.844932e-01
+  N2            4.890337e+05    8.807731e-01
+  O2            1.485591e+05    8.807731e-01
+  N            8.914544e-37           inf
+  O            1.885805e-32           inf
+  NO            0.000000e+00          -nan
+
+STEP=      40  pseudo-time= 7.817e-07 dt= 1.954e-08 cfl= 1.000e+00  WC=25192.7 
+RESIDUALS        absolute        relative
+  global         3.734343e+12    6.105809e-01
+  x-mom          1.079230e+09    7.124569e-01
+  y-mom          3.243705e+08    7.415010e-01
+  total-energy   1.264970e+12    7.227466e-01
+  nuhat            4.161492e+03    1.888054e-01
+  N2            4.005309e+05    7.213752e-01
+  O2            1.216737e+05    7.213752e-01
+  N            1.100670e-23           inf
+  O            1.670030e-11           inf
+  NO            2.249814e-23           inf
+
+WARNING: nonlinear update relaxation factor too small for step= 47
+         Taking nonlinear step again with the CFL reduced by a factor of 0.5
+WARNING: nonlinear update relaxation factor too small for step= 50
+         Taking nonlinear step again with the CFL reduced by a factor of 0.5
+STEP=      60  pseudo-time= 9.674e-07 dt= 4.886e-09 cfl= 2.500e-01  WC=35061.6 
+RESIDUALS        absolute        relative
+  global         3.671754e+12    6.003473e-01
+  x-mom          9.190613e+08    6.067209e-01
+  y-mom          2.741884e+08    6.267863e-01
+  total-energy   1.075488e+12    6.144850e-01
+  nuhat            2.303351e+03    1.045022e-01
+  N2            3.417759e+05    6.155547e-01
+  O2            1.038250e+05    6.155547e-01
+  N            4.941399e-02           inf
+  O            3.768236e-03           inf
+  NO            3.567988e-02           inf
+
+STEP=      80  pseudo-time= 1.065e-06 dt= 4.886e-09 cfl= 2.500e-01  WC=38498.8 
+RESIDUALS        absolute        relative
+  global         4.151593e+12    6.788030e-01
+  x-mom          8.181281e+08    5.400896e-01
+  y-mom          2.304168e+08    5.267258e-01
+  total-energy   9.326126e+11    5.328526e-01
+  nuhat            3.246417e+03    1.472887e-01
+  N2            3.011051e+05    5.423046e-01
+  O2            9.146998e+04    5.423046e-01
+  N            6.844761e-03           inf
+  O            2.073341e-02           inf
+  NO            7.747936e-03           inf
+
+WARNING: nonlinear update relaxation factor too small for step= 85
+         Taking nonlinear step again with the CFL reduced by a factor of 0.5
+WARNING: nonlinear update relaxation factor too small for step= 88
+         Taking nonlinear step again with the CFL reduced by a factor of 0.5
+WARNING: nonlinear update relaxation factor too small for step= 89
+         Taking nonlinear step again with the CFL reduced by a factor of 0.5
+WARNING: nonlinear update relaxation factor too small for step= 92
+         Taking nonlinear step again with the CFL reduced by a factor of 0.5
+WARNING: nonlinear update relaxation factor too small for step= 94
+         Taking nonlinear step again with the CFL reduced by a factor of 0.5
+WARNING: The simulation is stopping because the CFL (7.812e-03) is below the minimum allowable CFL value (1.000e-02)
+STEP=      95  pseudo-time= 1.091e-06 dt= 1.527e-10 cfl= 7.812e-03  WC=40163.6 
+RESIDUALS        absolute        relative
+  global         4.514276e+12    7.381031e-01
+  x-mom          8.596885e+08    5.675258e-01
+  y-mom          2.518954e+08    5.758252e-01
+  total-energy   1.251350e+12    7.149645e-01
+  nuhat            3.413014e+03    1.548472e-01
+  N2            3.175563e+05    5.719341e-01
+  O2            9.646757e+04    5.719341e-01
+  N            5.671513e-03           inf
+  O            9.549532e-02           inf
+  NO            9.514624e-03           inf
+
+-----------------------------------------------------------------------
+Writing flow solution at step=   95; pseudo-time= 1.091e-06
+-----------------------------------------------------------------------
+
+Done simulation.
+Eilmer 4.0 compressible-flow simulation code -- using Newton-Krylov accelerator.
+Revision-id: 34b3af3a
+Revision-date: Thu Apr 13 12:25:08 2023 +1000
+Compiler-name: ldc2
+Build-date: Thursday 13 April 2023 11:12:20 AM IST
+Build-flavour: debug
+Parallelism: Distributed memory with message passing (MPI), number of tasks 1
+Initialising simulation from snapshot: 0
+Reference residuals are established as:
+GLOBAL:         6.116049999486e+12
+X-MOMENTUM:     1.514800742090e+09
+Y-MOMENTUM:     4.374511829546e+08
+ENERGY:         1.750226255777e+12
+Nuhat:            2.204117356824e+04
+N2:            5.552323738208e+05
+O2:            1.686690262063e+05
+N:            0.000000000000e+00
+O:            0.000000000000e+00
+No:            0.000000000000e+00
+Eilmer 4.0 compressible-flow simulation code -- using Newton-Krylov accelerator.
+Revision-id: 34b3af3a
+Revision-date: Thu Apr 13 12:25:08 2023 +1000
+Compiler-name: ldc2
+Build-date: Thursday 13 April 2023 11:12:20 AM IST
+Build-flavour: debug
+Parallelism: Distributed memory with message passing (MPI), number of tasks 1
+Initialising simulation from snapshot: 0
+Reference residuals are established as:
+GLOBAL:         6.116049999486e+12
+X-MOMENTUM:     1.514800742090e+09
+Y-MOMENTUM:     4.374511829546e+08
+ENERGY:         1.750226255777e+12
+Nuhat:            2.204117356824e+04
+N2:            5.552323738208e+05
+O2:            1.686690262063e+05
+N:            0.000000000000e+00
+O:            0.000000000000e+00
+No:            0.000000000000e+00
+STEP=      20  pseudo-time= 3.909e-07 dt= 1.954e-08 cfl= 1.000e+00  WC=12673.0 
+RESIDUALS        absolute        relative
+  global         4.499824e+12    7.357403e-01
+  x-mom          1.319902e+09    8.713369e-01
+  y-mom          4.123259e+08    9.425644e-01
+  total-energy   1.545963e+12    8.832935e-01
+  nuhat            1.067880e+04    4.844932e-01
+  N2            4.890337e+05    8.807731e-01
+  O2            1.485591e+05    8.807731e-01
+  N            8.914544e-37           inf
+  O            1.885805e-32           inf
+  NO            0.000000e+00          -nan
+
+STEP=      40  pseudo-time= 7.817e-07 dt= 1.954e-08 cfl= 1.000e+00  WC=25082.3 
+RESIDUALS        absolute        relative
+  global         3.734343e+12    6.105809e-01
+  x-mom          1.079230e+09    7.124569e-01
+  y-mom          3.243705e+08    7.415010e-01
+  total-energy   1.264970e+12    7.227466e-01
+  nuhat            4.161492e+03    1.888054e-01
+  N2            4.005309e+05    7.213752e-01
+  O2            1.216737e+05    7.213752e-01
+  N            1.100670e-23           inf
+  O            1.670030e-11           inf
+  NO            2.249814e-23           inf
+
+WARNING: nonlinear update relaxation factor too small for step= 47
+         Taking nonlinear step again with the CFL reduced by a factor of 0.5
+WARNING: nonlinear update relaxation factor too small for step= 50
+         Taking nonlinear step again with the CFL reduced by a factor of 0.5
+STEP=      60  pseudo-time= 9.674e-07 dt= 4.886e-09 cfl= 2.500e-01  WC=34955.9 
+RESIDUALS        absolute        relative
+  global         3.671754e+12    6.003473e-01
+  x-mom          9.190613e+08    6.067209e-01
+  y-mom          2.741884e+08    6.267863e-01
+  total-energy   1.075488e+12    6.144850e-01
+  nuhat            2.303351e+03    1.045022e-01
+  N2            3.417759e+05    6.155547e-01
+  O2            1.038250e+05    6.155547e-01
+  N            4.941399e-02           inf
+  O            3.768236e-03           inf
+  NO            3.567988e-02           inf
+
+STEP=      80  pseudo-time= 1.065e-06 dt= 4.886e-09 cfl= 2.500e-01  WC=38393.4 
+RESIDUALS        absolute        relative
+  global         4.151593e+12    6.788030e-01
+  x-mom          8.181281e+08    5.400896e-01
+  y-mom          2.304168e+08    5.267258e-01
+  total-energy   9.326126e+11    5.328526e-01
+  nuhat            3.246417e+03    1.472887e-01
+  N2            3.011051e+05    5.423046e-01
+  O2            9.146998e+04    5.423046e-01
+  N            6.844761e-03           inf
+  O            2.073341e-02           inf
+  NO            7.747936e-03           inf
+
+WARNING: nonlinear update relaxation factor too small for step= 85
+         Taking nonlinear step again with the CFL reduced by a factor of 0.5
+WARNING: nonlinear update relaxation factor too small for step= 88
+         Taking nonlinear step again with the CFL reduced by a factor of 0.5
+WARNING: nonlinear update relaxation factor too small for step= 89
+         Taking nonlinear step again with the CFL reduced by a factor of 0.5
+WARNING: nonlinear update relaxation factor too small for step= 92
+         Taking nonlinear step again with the CFL reduced by a factor of 0.5
+WARNING: nonlinear update relaxation factor too small for step= 94
+         Taking nonlinear step again with the CFL reduced by a factor of 0.5
+WARNING: The simulation is stopping because the CFL (7.812e-03) is below the minimum allowable CFL value (1.000e-02)
+STEP=      95  pseudo-time= 1.091e-06 dt= 1.527e-10 cfl= 7.812e-03  WC=40058.5 
+RESIDUALS        absolute        relative
+  global         4.514276e+12    7.381031e-01
+  x-mom          8.596885e+08    5.675258e-01
+  y-mom          2.518954e+08    5.758252e-01
+  total-energy   1.251350e+12    7.149645e-01
+  nuhat            3.413014e+03    1.548472e-01
+  N2            3.175563e+05    5.719341e-01
+  O2            9.646757e+04    5.719341e-01
+  N            5.671513e-03           inf
+  O            9.549532e-02           inf
+  NO            9.514624e-03           inf
+
+-----------------------------------------------------------------------
+Writing flow solution at step=   95; pseudo-time= 1.091e-06
+-----------------------------------------------------------------------
+
+Done simulation.
