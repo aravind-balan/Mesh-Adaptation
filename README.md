@@ -43,6 +43,30 @@ $ g++ getScalarSolutionFiles.cpp -DTWOD -DVISCOUS -o 2d_viscous_solutions
 
 Running the generated binary will create 9 solution files (8 for 2D) in the `sol` folder which can be later used to create the metric field and further adapt the grid using NASA/Refine. In this project we have used Mach Number to generate the metric fields.
 
+## Creating an EGADS geometry
+It is important to know how to create an EGADS geometry for any case one is trying to run before they get started with NASA/Refine. The importance comes from the fact that Refine will try to modify the grid even at the boundaries depending on the flow solution. If geometry data is not provided, Refine will use linear interpolation to place points between two previous points. This should practically be fine for certain cases but one needs to keep in mind that these new points DO NOT lie on the original curve of the geometry. As a result, if the starting grid is very course, which it should be, the final adapted grid after a few iterations will not lie on the intended boundary whatsoever.
+
+Refine reads geometries in EGADS format and in this section a brief introduction will be given on how to generate an EGADS file. When starting a geometry from scratch, one can just go to their preferred CAD software and create a geometry (with the fluid domain, preferably) and export a STEP file. Once the STEP file is created, a simple CSM script can be used to convert it to an EGADS format. This is the simplest way because a STEP file for a standard testcase geometries is usually available online and does not need to be created from scratch. Once obtained, the CSM file can be written contains three simple lines.
+
+```
+# import the step file
+import geometry.step 1
+
+# dump the data in an egads format
+dump geometry.egads
+
+# end the script
+end
+```
+
+To run the csm file keep the files in the same folder and run the following command in the terminal. OpenCSM will be installed in your system as a part of Engineering Sketch Pad. No extra steps are needed for its installation.
+
+```
+serveESP geometry.csm
+```
+
+There are a lot more options in a csm file and for any advanced options one should refer to the [OpenCSM Documentation](https://acdl.mit.edu/esp/Publications/AIAApaper2013-0701.pdf) and the UGAWG example [CSM file for the Onera M6 Wing case](https://raw.githubusercontent.com/UGAWG/solution-adapt-cases/master/onera-m6/geometry/onera-m6-sharp-te.csm).
+
 ## Using NASA/Refine
 Refine is a simple yet powerful tool which can be used to create metric fields, adapt grids, translate grids from one format to another, and much more. You need the following files to create a metric field and adapt a grid:
 1. The mesh/grid file
@@ -245,3 +269,50 @@ The [basic configuration file](Turbulent%20Onera%20M6%20Wing/Onera00/turb_ONERAM
 | ![Pressure 06_07](Turbulent%20Onera%20M6%20Wing/Onera06_07/Images%20and%20Plots/Pressure06_07.png) | ![Pressure 07_05](Turbulent%20Onera%20M6%20Wing/Onera07_05/Images%20and%20Plots/Pressure07_05.png) |
 | ![Pressure 08_05](Turbulent%20Onera%20M6%20Wing/Onera08_05/Images%20and%20Plots/Pressure08_05.png) | ![Pressure 09_05](Turbulent%20Onera%20M6%20Wing/Onera09_05/Images%20and%20Plots/Pressure09_05.png) |
 | ![Pressure 10_01](Turbulent%20Onera%20M6%20Wing/Onera10_01/Images%20and%20Plots/Pressure10_01.png) | ![Pressure 10_03](Turbulent%20Onera%20M6%20Wing/Onera10_03/Images%20and%20Plots/Pressure10_03.png) |
+
+## Testcase Results - Hypersonic flow over a Cylinder (HEG Cylinder) [2D] [SU2-NEMO]
+
+This is a testcase whose results have been published by the developers of SU2 NEMO (Non Equilibrium MOdels), the hypersonic solver for SU2, to demonstrate the robustness of their solver. The original study from 2012 is linked [here](https://doi.org/10.2514/6.2003-4252) and the results by SU2 are linked [here](http://dx.doi.org/10.3390/aerospace8070193).
+
+### Results
+
+| Grid | Mach | Pressure |
+| ---- | ---- | ---- |
+| ![Grid 00](<Hypersonic 2D/HEG-Cylinder/heg-1k/00/Results/grid.png>) | ![Mach 00](<Hypersonic 2D/HEG-Cylinder/heg-1k/00/Results/mach.png>) | ![Pressure 00](<Hypersonic 2D/HEG-Cylinder/heg-1k/00/Results/pressure.png>) |
+| ![Grid 01](<Hypersonic 2D/HEG-Cylinder/heg-1k/01/Results/grid.png>) | ![Mach 01](<Hypersonic 2D/HEG-Cylinder/heg-1k/01/Results/mach.png>) | ![Pressure 01](<Hypersonic 2D/HEG-Cylinder/heg-1k/01/Results/pressure.png>) |
+| ![Grid 05](<Hypersonic 2D/HEG-Cylinder/heg-1k/05/Results/grid.png>) | ![Mach 05](<Hypersonic 2D/HEG-Cylinder/heg-1k/05/Results/mach.png>) | ![Pressure 05](<Hypersonic 2D/HEG-Cylinder/heg-1k/05/Results/pressure.png>) |
+| ![Grid 15](<Hypersonic 2D/HEG-Cylinder/heg-1k/15/Results/grid.png>) | ![Mach 15](<Hypersonic 2D/HEG-Cylinder/heg-1k/15/Results/mach.png>) | ![Pressure 15](<Hypersonic 2D/HEG-Cylinder/heg-1k/15/Results/pressure.png>) |
+| ![Grid 26](<Hypersonic 2D/HEG-Cylinder/heg-1k/26/Results/grid.png>) | ![Mach 26](<Hypersonic 2D/HEG-Cylinder/heg-1k/26/Results/mach.png>) | ![Pressure 26](<Hypersonic 2D/HEG-Cylinder/heg-1k/26/Results/pressure.png>) |
+| ![Grid 35](<Hypersonic 2D/HEG-Cylinder/heg-1k/35/Results/grid.png>) | ![Mach 35](<Hypersonic 2D/HEG-Cylinder/heg-1k/35/Results/mach.png>) | ![Pressure 35](<Hypersonic 2D/HEG-Cylinder/heg-1k/35/Results/pressure.png>) |
+
+## Refine Adaptation on Hybrid Meshes
+
+### Triangle and Quads - NACA0012 Testcases
+
+![Close up of the Boundary Layer](naca0012-hybrid/thin-layer/inviscid-transonic/bl-closeup.png)
+
+#### Inviscid Transonic
+
+| Grid | Mach | Pressure |
+| ---- | ---- | ---- |
+| ![Grid 00](naca0012-hybrid/thin-layer/inviscid-transonic/00/Results/grid.png) | ![Mach 00](naca0012-hybrid/thin-layer/inviscid-transonic/00/Results/mach.png) | ![Pressure 00](naca0012-hybrid/thin-layer/inviscid-transonic/00/Results/pressure.png) |
+| ![Grid 01](naca0012-hybrid/thin-layer/inviscid-transonic/01/Results/grid.png) | ![Mach 01](naca0012-hybrid/thin-layer/inviscid-transonic/01/Results/mach.png) | ![Pressure 01](naca0012-hybrid/thin-layer/inviscid-transonic/01/Results/pressure.png) |
+| ![Grid 02](naca0012-hybrid/thin-layer/inviscid-transonic/02/Results/grid.png) | ![Mach 02](naca0012-hybrid/thin-layer/inviscid-transonic/02/Results/mach.png) | ![Pressure 02](naca0012-hybrid/thin-layer/inviscid-transonic/02/Results/pressure.png) |
+| ![Grid 03](naca0012-hybrid/thin-layer/inviscid-transonic/03/Results/grid.png) | ![Mach 03](naca0012-hybrid/thin-layer/inviscid-transonic/03/Results/mach.png) | ![Pressure 03](naca0012-hybrid/thin-layer/inviscid-transonic/03/Results/pressure.png) |
+
+#### Inviscid Supersonic
+
+| Grid | Mach | Pressure |
+| ---- | ---- | ---- |
+| ![Grid 00](naca0012-hybrid/thin-layer/inviscid-supersonic/00/Results/grid.png) | ![Mach 00](naca0012-hybrid/thin-layer/inviscid-supersonic/00/Results/mach.png) | ![Pressure 00](naca0012-hybrid/thin-layer/inviscid-supersonic/00/Results/pressure.png) |
+| ![Grid 01](naca0012-hybrid/thin-layer/inviscid-supersonic/01/Results/grid.png) | ![Mach 01](naca0012-hybrid/thin-layer/inviscid-supersonic/01/Results/mach.png) | ![Pressure 01](naca0012-hybrid/thin-layer/inviscid-supersonic/01/Results/pressure.png) |
+| ![Grid 02](naca0012-hybrid/thin-layer/inviscid-supersonic/02/Results/grid.png) | ![Mach 02](naca0012-hybrid/thin-layer/inviscid-supersonic/02/Results/mach.png) | ![Pressure 02](naca0012-hybrid/thin-layer/inviscid-supersonic/02/Results/pressure.png) |
+| ![Grid 03](naca0012-hybrid/thin-layer/inviscid-supersonic/03/Results/grid.png) | ![Mach 03](naca0012-hybrid/thin-layer/inviscid-supersonic/03/Results/mach.png) | ![Pressure 03](naca0012-hybrid/thin-layer/inviscid-supersonic/03/Results/pressure.png) |
+
+#### Laminar Subsonic
+
+| Grid | Mach | Pressure |
+| ---- | ---- | ---- |
+| ![Grid 00](naca0012-hybrid/thin-layer/laminar-subsonic/00/Results/grid.png) | ![Mach 00](naca0012-hybrid/thin-layer/laminar-subsonic/00/Results/mach.png) | ![Pressure 00](naca0012-hybrid/thin-layer/laminar-subsonic/00/Results/pressure.png) |
+| ![Grid 01](naca0012-hybrid/thin-layer/laminar-subsonic/01/Results/grid.png) | ![Mach 01](naca0012-hybrid/thin-layer/laminar-subsonic/01/Results/mach.png) | ![Pressure 01](naca0012-hybrid/thin-layer/laminar-subsonic/01/Results/pressure.png) |
+| ![Grid 02](naca0012-hybrid/thin-layer/laminar-subsonic/02/Results/grid.png) | ![Mach 02](naca0012-hybrid/thin-layer/laminar-subsonic/02/Results/mach.png) | ![Pressure 02](naca0012-hybrid/thin-layer/laminar-subsonic/02/Results/pressure.png) |
