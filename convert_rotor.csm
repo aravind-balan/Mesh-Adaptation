@@ -1,0 +1,9 @@
+
+# converts step to egads
+
+import rotor.step 1
+
+dump rotor.egads
+
+end
+
