@@ -170,6 +170,48 @@ $ ref adapt input-mesh.meshb --egads geometry-file.egads -m metric-field.solb -x
 
 After the adapted grid is generated you can convert it to SU2 format using the translate command discussed earlier. Check the su2 mesh file for any required changes. If it does, head over to [Editing the SU2 Grid File](#editing-the-su2-grid-file) and implement those changes. After that you are good to go.
 
+## Using EILMER with NASA/Refine
+
+[EILMER](https://gdtk.uqcloud.net/docs/eilmer/about/) is another open source solver that is specifically designed to handle hypersonic flow. The solver is incredibly robust and brilliantly documented in its [reference manual](https://gdtk.uqcloud.net/docs/eilmer/eilmer-reference-manual/) and [user guides](https://gdtk.uqcloud.net/docs/eilmer/user-guide/). Everything one needs to know about the solver can be found on their pages linked above and hence will not be discussed here. Our area of focus will be around using EILMER with NASA/Refine and trying to run a few adaptation cycles.
+
+The first thing one needs to know is that EILMER does not have a restart flow file in ASCII format that can be easily read like SU2 does. Paraview needs to be used to extract field data and `*.sol` files needed for metric field generation need to be manually created.
+
+The second thing is that EILMER stores values as cell center values and not at nodes. So we need to interpolate the values from cells to points in order to use Refine for adaptation.
+
+Easiest way to do this is to load the `*.vtk` file generated from the post-processor of EILMER in paraview and extract the data using the following steps. Just note that the post-processor does not add mach number by default and you need to add `--add-vars="mach"` to the post processing command.
+
+1. Interpolating cell data to point data: In the menubar, go to **Filters -> Alphabetical -> Cell data to point data**
+2. Set up data extractor: In the menu bar, go to **Extractors -> Data -> CSV**, set up the parameters (recommendations: value for precision is 16 and to enable scientific notation)
+3. Save the extracted data: To save the dataset go to **File -> Save Extracts**. Set the folder for the extract (by default in the current directory under `extracts`) and save the dataset.
+
+Once the csv file is generated with the data, the `*.sol` file can now be manually created.
+
+> NOTE: Since these points are extrapolated from cell data, the coordinates of the points would very slightly vary from the original values in the grid files. This is inconsequential and can be ignored for all practical purposes. The first few decimal places will match and that should give a brief idea of where the point is and would uniquely resemble its corresponding point.
+
+### Creating the solution file
+
+The sol file follows a very simple format.
+```
+MeshVersionFormatted 1
+
+Dimension $DIM
+
+SolAtVertices
+$NUMBER_OF_POINTS
+1 1
+
+.
+.
+.
+.
+.
+
+END
+```
+For our case we don't need to know what most numbers and values mean here. We only need to change **$DIM** and **$NUMBER_OF_POINTS** for our case. Change **$DIM** to **2** for 2D and **3** for 3D simulations. And replace the **$NUMBER_OF_POINTS** variables to the number of points present in the grid. After that fill up the dotted line with the scalar data (usually it is a column of mach numbers) and end the file with a string "END" on a new line. We have our solution file.
+
+> NOTE: The scalar data is arranged point-wise from first to last in the order of points in the grid file. I have never encountered a different order in the CSV file but one should roughly check if the points are arranged in the csv file in the same order as the grid file.
+
 ## Testcase Results - Inviscid Transonic Flow Over NACA0012 Airfoil [2D]
 The flow over a 2D NACA Airfoil is done with the following flow conditions:
 
@@ -287,6 +329,12 @@ This is a testcase whose results have been published by the developers of SU2 NE
 
 ## Refine Adaptation on Hybrid Meshes
 
+Refine treats the grid a little differently when the grid is a hybrid mesh, i.e. Quads+Triangles for a 2D case and Prisms+Tetrahedras for a 3D one. Refine does not modify/adapt the cells which are quads/prisms and works on the other "unstructured" elements near the features necessary for adaptation. There are no extra flags or commands required for hybrid meshes; use the refine command as you would for a standard mesh and the package will take care of the rest.
+
+ Below are a few examples of the 2D cases run with a hybrid mesh.
+
+> NOTE: To create these hybrid meshes one can create/import a standard unstructured grid in Pointwise and run the T-Rex solver with "Quads + Tris" enabled for 2D and "Prisms + Tets" enabled for 3D. Do make sure that you have applied the boundary conditions for the wall (eg. first cell height, max layers) correctly for the T-Rex solver otherwise you might ruin the previous mesh. Creating a backup copy before one starts modifying a grid is advised.
+
 ### Triangle and Quads - NACA0012 Testcases
 
 ![Close up of the Boundary Layer](naca0012-hybrid/thin-layer/inviscid-transonic/bl-closeup.png)
@@ -316,3 +364,15 @@ This is a testcase whose results have been published by the developers of SU2 NE
 | ![Grid 00](naca0012-hybrid/thin-layer/laminar-subsonic/00/Results/grid.png) | ![Mach 00](naca0012-hybrid/thin-layer/laminar-subsonic/00/Results/mach.png) | ![Pressure 00](naca0012-hybrid/thin-layer/laminar-subsonic/00/Results/pressure.png) |
 | ![Grid 01](naca0012-hybrid/thin-layer/laminar-subsonic/01/Results/grid.png) | ![Mach 01](naca0012-hybrid/thin-layer/laminar-subsonic/01/Results/mach.png) | ![Pressure 01](naca0012-hybrid/thin-layer/laminar-subsonic/01/Results/pressure.png) |
 | ![Grid 02](naca0012-hybrid/thin-layer/laminar-subsonic/02/Results/grid.png) | ![Mach 02](naca0012-hybrid/thin-layer/laminar-subsonic/02/Results/mach.png) | ![Pressure 02](naca0012-hybrid/thin-layer/laminar-subsonic/02/Results/pressure.png) |
+
+## Testcase results with EILMER with Refine - Shockwave Boundary Layer Interaction [2D]
+
+This is a shockwave boundary layer interaction at Mach 7 problem which is a testcase given in Eilmer's example folder.
+
+| Grid | Mach | Pressure |
+| ---- | ---- | ---- |
+| ![Grid 00](Eilmer/Testcases/swbli/Results/grid.png) | ![Mach 00](Eilmer/Testcases/swbli/Results/mach.png) | ![Pressure 00](Eilmer/Testcases/swbli/Results/pressure.png) |
+| ![Grid 01](Eilmer/Testcases/swbli/1/Results/grid.png) | ![Mach 01](Eilmer/Testcases/swbli/1/Results/mach.png) | ![Pressure 01](Eilmer/Testcases/swbli/1/Results/pressure.png) |
+| ![Grid 02](Eilmer/Testcases/swbli/2/Results/grid.png) | ![Mach 02](Eilmer/Testcases/swbli/2/Results/mach.png) | ![Pressure 02](Eilmer/Testcases/swbli/2/Results/pressure.png) |
+
+The way in which Refine has adapted the grid around every single feature in the flow domain is very easily visible. Cells are concentrated near the shockwaves and the shock interactions and reflections, the expansion waves being bent and interacting with the shocks, the free sheer jet originating from the point of contact of two shockwaves, all of these features have been refined as a part of the adaptation
