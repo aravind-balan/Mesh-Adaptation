@@ -337,6 +337,8 @@ Refine treats the grid a little differently when the grid is a hybrid mesh, i.e.
 
 ### Triangle and Quads - NACA0012 Testcases
 
+Close up of the thin boundary layer created with quads for a 2D NACA0012 airfoil
+
 ![Close up of the Boundary Layer](naca0012-hybrid/thin-layer/inviscid-transonic/bl-closeup.png)
 
 #### Inviscid Transonic
@@ -347,6 +349,14 @@ Refine treats the grid a little differently when the grid is a hybrid mesh, i.e.
 | ![Grid 01](naca0012-hybrid/thin-layer/inviscid-transonic/01/Results/grid.png) | ![Mach 01](naca0012-hybrid/thin-layer/inviscid-transonic/01/Results/mach.png) | ![Pressure 01](naca0012-hybrid/thin-layer/inviscid-transonic/01/Results/pressure.png) |
 | ![Grid 02](naca0012-hybrid/thin-layer/inviscid-transonic/02/Results/grid.png) | ![Mach 02](naca0012-hybrid/thin-layer/inviscid-transonic/02/Results/mach.png) | ![Pressure 02](naca0012-hybrid/thin-layer/inviscid-transonic/02/Results/pressure.png) |
 | ![Grid 03](naca0012-hybrid/thin-layer/inviscid-transonic/03/Results/grid.png) | ![Mach 03](naca0012-hybrid/thin-layer/inviscid-transonic/03/Results/mach.png) | ![Pressure 03](naca0012-hybrid/thin-layer/inviscid-transonic/03/Results/pressure.png) |
+
+Here is a small example of how the grid changes near the quads for a 2D mesh:
+
+|  |  |
+| ---- | ---- |
+| ![Grid 00](naca0012-hybrid/thin-layer/inviscid-transonic/00/Results/closeup.png) | ![Grid 01](naca0012-hybrid/thin-layer/inviscid-transonic/01/Results/closeup.png) |
+| ![Grid 02](naca0012-hybrid/thin-layer/inviscid-transonic/02/Results/closeup.png) | ![Grid 03](naca0012-hybrid/thin-layer/inviscid-transonic/03/Results/closeup.png) |
+
 
 #### Inviscid Supersonic
 
