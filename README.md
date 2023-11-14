@@ -340,6 +340,13 @@ Here is a small example of how the grid changes near the quads for a 2D mesh:
 | ![Grid 01](naca0012-hybrid/thin-layer/laminar-subsonic/01/Results/grid.png) | ![Mach 01](naca0012-hybrid/thin-layer/laminar-subsonic/01/Results/mach.png) | ![Pressure 01](naca0012-hybrid/thin-layer/laminar-subsonic/01/Results/pressure.png) |
 | ![Grid 02](naca0012-hybrid/thin-layer/laminar-subsonic/02/Results/grid.png) | ![Mach 02](naca0012-hybrid/thin-layer/laminar-subsonic/02/Results/mach.png) | ![Pressure 02](naca0012-hybrid/thin-layer/laminar-subsonic/02/Results/pressure.png) |
 
+Here is a small example of how the grid changes near the quads for a 2D mesh:
+
+|  |  |
+| ---- | ---- |
+| ![Grid 00](naca0012-hybrid/thin-layer/laminar-subsonic/00/Results/closeup.png) | ![Grid 01](naca0012-hybrid/thin-layer/laminar-subsonic/01/Results/closeup.png) |
+| ![Grid 02](naca0012-hybrid/thin-layer/laminar-subsonic/02/Results/closeup.png) | |
+
 ## Using EILMER with NASA/Refine
 
 [EILMER](https://gdtk.uqcloud.net/docs/eilmer/about/) is another open source solver that is specifically designed to handle hypersonic flow. The solver is incredibly robust and brilliantly documented in its [reference manual](https://gdtk.uqcloud.net/docs/eilmer/eilmer-reference-manual/) and [user guides](https://gdtk.uqcloud.net/docs/eilmer/user-guide/). Everything one needs to know about the solver can be found on their pages linked above and hence will not be discussed here. Our area of focus will be around using EILMER with NASA/Refine and trying to run a few adaptation cycles.
