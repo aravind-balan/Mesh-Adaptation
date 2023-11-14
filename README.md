@@ -170,48 +170,6 @@ $ ref adapt input-mesh.meshb --egads geometry-file.egads -m metric-field.solb -x
 
 After the adapted grid is generated you can convert it to SU2 format using the translate command discussed earlier. Check the su2 mesh file for any required changes. If it does, head over to [Editing the SU2 Grid File](#editing-the-su2-grid-file) and implement those changes. After that you are good to go.
 
-## Using EILMER with NASA/Refine
-
-[EILMER](https://gdtk.uqcloud.net/docs/eilmer/about/) is another open source solver that is specifically designed to handle hypersonic flow. The solver is incredibly robust and brilliantly documented in its [reference manual](https://gdtk.uqcloud.net/docs/eilmer/eilmer-reference-manual/) and [user guides](https://gdtk.uqcloud.net/docs/eilmer/user-guide/). Everything one needs to know about the solver can be found on their pages linked above and hence will not be discussed here. Our area of focus will be around using EILMER with NASA/Refine and trying to run a few adaptation cycles.
-
-The first thing one needs to know is that EILMER does not have a restart flow file in ASCII format that can be easily read like SU2 does. Paraview needs to be used to extract field data and `*.sol` files needed for metric field generation need to be manually created.
-
-The second thing is that EILMER stores values as cell center values and not at nodes. So we need to interpolate the values from cells to points in order to use Refine for adaptation.
-
-Easiest way to do this is to load the `*.vtk` file generated from the post-processor of EILMER in paraview and extract the data using the following steps. Just note that the post-processor does not add mach number by default and you need to add `--add-vars="mach"` to the post processing command.
-
-1. Interpolating cell data to point data: In the menubar, go to **Filters -> Alphabetical -> Cell data to point data**
-2. Set up data extractor: In the menu bar, go to **Extractors -> Data -> CSV**, set up the parameters (recommendations: value for precision is 16 and to enable scientific notation)
-3. Save the extracted data: To save the dataset go to **File -> Save Extracts**. Set the folder for the extract (by default in the current directory under `extracts`) and save the dataset.
-
-Once the csv file is generated with the data, the `*.sol` file can now be manually created.
-
-> NOTE: Since these points are extrapolated from cell data, the coordinates of the points would very slightly vary from the original values in the grid files. This is inconsequential and can be ignored for all practical purposes. The first few decimal places will match and that should give a brief idea of where the point is and would uniquely resemble its corresponding point.
-
-### Creating the solution file
-
-The sol file follows a very simple format.
-```
-MeshVersionFormatted 1
-
-Dimension $DIM
-
-SolAtVertices
-$NUMBER_OF_POINTS
-1 1
-
-.
-.
-.
-.
-.
-
-END
-```
-For our case we don't need to know what most numbers and values mean here. We only need to change **$DIM** and **$NUMBER_OF_POINTS** for our case. Change **$DIM** to **2** for 2D and **3** for 3D simulations. And replace the **$NUMBER_OF_POINTS** variables to the number of points present in the grid. After that fill up the dotted line with the scalar data (usually it is a column of mach numbers) and end the file with a string "END" on a new line. We have our solution file.
-
-> NOTE: The scalar data is arranged point-wise from first to last in the order of points in the grid file. I have never encountered a different order in the CSV file but one should roughly check if the points are arranged in the csv file in the same order as the grid file.
-
 ## Testcase Results - Inviscid Transonic Flow Over NACA0012 Airfoil [2D]
 The flow over a 2D NACA Airfoil is done with the following flow conditions:
 
@@ -367,6 +325,13 @@ Here is a small example of how the grid changes near the quads for a 2D mesh:
 | ![Grid 02](naca0012-hybrid/thin-layer/inviscid-supersonic/02/Results/grid.png) | ![Mach 02](naca0012-hybrid/thin-layer/inviscid-supersonic/02/Results/mach.png) | ![Pressure 02](naca0012-hybrid/thin-layer/inviscid-supersonic/02/Results/pressure.png) |
 | ![Grid 03](naca0012-hybrid/thin-layer/inviscid-supersonic/03/Results/grid.png) | ![Mach 03](naca0012-hybrid/thin-layer/inviscid-supersonic/03/Results/mach.png) | ![Pressure 03](naca0012-hybrid/thin-layer/inviscid-supersonic/03/Results/pressure.png) |
 
+Here is a small example of how the grid changes near the quads for a 2D mesh:
+
+|  |  |
+| ---- | ---- |
+| ![Grid 00](naca0012-hybrid/thin-layer/inviscid-supersonic/00/Results/closeup.png) | ![Grid 01](naca0012-hybrid/thin-layer/inviscid-supersonic/01/Results/closeup.png) |
+| ![Grid 02](naca0012-hybrid/thin-layer/inviscid-supersonic/02/Results/closeup.png) | ![Grid 03](naca0012-hybrid/thin-layer/inviscid-supersonic/03/Results/closeup.png) |
+
 #### Laminar Subsonic
 
 | Grid | Mach | Pressure |
@@ -374,6 +339,48 @@ Here is a small example of how the grid changes near the quads for a 2D mesh:
 | ![Grid 00](naca0012-hybrid/thin-layer/laminar-subsonic/00/Results/grid.png) | ![Mach 00](naca0012-hybrid/thin-layer/laminar-subsonic/00/Results/mach.png) | ![Pressure 00](naca0012-hybrid/thin-layer/laminar-subsonic/00/Results/pressure.png) |
 | ![Grid 01](naca0012-hybrid/thin-layer/laminar-subsonic/01/Results/grid.png) | ![Mach 01](naca0012-hybrid/thin-layer/laminar-subsonic/01/Results/mach.png) | ![Pressure 01](naca0012-hybrid/thin-layer/laminar-subsonic/01/Results/pressure.png) |
 | ![Grid 02](naca0012-hybrid/thin-layer/laminar-subsonic/02/Results/grid.png) | ![Mach 02](naca0012-hybrid/thin-layer/laminar-subsonic/02/Results/mach.png) | ![Pressure 02](naca0012-hybrid/thin-layer/laminar-subsonic/02/Results/pressure.png) |
+
+## Using EILMER with NASA/Refine
+
+[EILMER](https://gdtk.uqcloud.net/docs/eilmer/about/) is another open source solver that is specifically designed to handle hypersonic flow. The solver is incredibly robust and brilliantly documented in its [reference manual](https://gdtk.uqcloud.net/docs/eilmer/eilmer-reference-manual/) and [user guides](https://gdtk.uqcloud.net/docs/eilmer/user-guide/). Everything one needs to know about the solver can be found on their pages linked above and hence will not be discussed here. Our area of focus will be around using EILMER with NASA/Refine and trying to run a few adaptation cycles.
+
+The first thing one needs to know is that EILMER does not have a restart flow file in ASCII format that can be easily read like SU2 does. Paraview needs to be used to extract field data and `*.sol` files needed for metric field generation need to be manually created.
+
+The second thing is that EILMER stores values as cell center values and not at nodes. So we need to interpolate the values from cells to points in order to use Refine for adaptation.
+
+Easiest way to do this is to load the `*.vtk` file generated from the post-processor of EILMER in paraview and extract the data using the following steps. Just note that the post-processor does not add mach number by default and you need to add `--add-vars="mach"` to the post processing command.
+
+1. Interpolating cell data to point data: In the menubar, go to **Filters -> Alphabetical -> Cell data to point data**
+2. Set up data extractor: In the menu bar, go to **Extractors -> Data -> CSV**, set up the parameters (recommendations: value for precision is 16 and to enable scientific notation)
+3. Save the extracted data: To save the dataset go to **File -> Save Extracts**. Set the folder for the extract (by default in the current directory under `extracts`) and save the dataset.
+
+Once the csv file is generated with the data, the `*.sol` file can now be manually created.
+
+> NOTE: Since these points are extrapolated from cell data, the coordinates of the points would very slightly vary from the original values in the grid files. This is inconsequential and can be ignored for all practical purposes. The first few decimal places will match and that should give a brief idea of where the point is and would uniquely resemble its corresponding point.
+
+### Creating the solution file
+
+The sol file follows a very simple format.
+```
+MeshVersionFormatted 1
+
+Dimension $DIM
+
+SolAtVertices
+$NUMBER_OF_POINTS
+1 1
+
+.
+.
+.
+.
+.
+
+END
+```
+For our case we don't need to know what most numbers and values mean here. We only need to change **$DIM** and **$NUMBER_OF_POINTS** for our case. Change **$DIM** to **2** for 2D and **3** for 3D simulations. And replace the **$NUMBER_OF_POINTS** variables to the number of points present in the grid. After that fill up the dotted line with the scalar data (usually it is a column of mach numbers) and end the file with a string "END" on a new line. We have our solution file.
+
+> NOTE: The scalar data is arranged point-wise from first to last in the order of points in the grid file. I have never encountered a different order in the CSV file but one should roughly check if the points are arranged in the csv file in the same order as the grid file.
 
 ## Testcase results with EILMER with Refine - Shockwave Boundary Layer Interaction [2D]
 
